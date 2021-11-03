@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/03 20:46:55 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/03 21:01:42 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_env {
 # define GREEN		0x0000FF00
 # define BLUE		0x000000FF
 # define MAGENTA	0x00FF00FF
+# define CYAN		0x00000FFF
 
 # define LEFT	65361
 # define UP		65362
@@ -46,6 +47,7 @@ typedef struct s_env {
 # define NUMPAD_4 65430
 # define NUMPAD_5 65437
 
-# define ESC	65307
+# define BACKSPACE	65288
+# define ESC		65307
 
 #endif
