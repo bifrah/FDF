@@ -6,28 +6,13 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/03 20:16:48 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/03 20:29:19 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../mlx_linux/mlx.h"
 #include "../mlx_linux/mlx_int.h"
-#include <unistd.h>
-
-#define RED 0x00FF0000
-#define NUMPAD_1 65436
-
-typedef struct s_env {
-	void	*mlx;
-	void	*win_ptr;
-	void	*img_data;
-	char	*img_ptr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		img_x;
-	int		img_y;
-}				t_env;
+#include "../includes/fdf.h"
 
 void	ft_setenv(t_env *env)
 {
@@ -48,18 +33,18 @@ void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
 
 void	ft_draw(t_env *env)
 {
-	int	i;
+	int	first_img;
 
-	i = 0;
-	if (i == 1)
+	first_img = 0;
+	if (first_img == 1)
 		mlx_destroy_image(env->mlx, env->img_ptr);
 	env->img_ptr = mlx_new_image(env->mlx, 1920, 1080);
 	env->img_data = mlx_get_data_addr(env->img_ptr, &env->bits_per_pixel,
 			&env->line_length, &env->endian);
 	my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 	mlx_put_image_to_window(env->mlx, env->win_ptr, env->img_ptr, 0, 0);
-	if (i == 1)
-		i = 0;
+	if (first_img == 1)
+		first_img = 0;
 }
 
 int	key_hook(int keycode, t_env *env)
