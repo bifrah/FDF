@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/03 20:13:33 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/03 20:16:48 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 #include "../mlx_linux/mlx_int.h"
 #include <unistd.h>
 
-# define RED 0x00FF0000
-# define NUMPAD_1 65436
-// void	img_replace(t_env *mlx, t_env win_ptr, t_env img_ptr, t_env img_data)
-// {
-
-// }
+#define RED 0x00FF0000
+#define NUMPAD_1 65436
 
 typedef struct s_env {
 	void	*mlx;
@@ -35,8 +31,8 @@ typedef struct s_env {
 
 void	ft_setenv(t_env *env)
 {
-	env->img_x = 5;
-	env->img_y = 5; 
+	env->img_x = 0;
+	env->img_y = 0;
 	env->mlx = mlx_init();
 	env->win_ptr = mlx_new_window(env->mlx, 1920, 1080, "Hello world !");
 }
@@ -71,7 +67,7 @@ int	key_hook(int keycode, t_env *env)
 	if (keycode == NUMPAD_1)
 	{
 		env->img_x += 10;
-		env->img_y += 10; 
+		env->img_y += 10;
 	}
 	ft_draw(env);
 	return (0);
@@ -83,6 +79,6 @@ int	main(void)
 
 	ft_setenv(&env);
 	ft_draw(&env);
-	mlx_hook(env.win_ptr, 2, (1L<<0), &key_hook, &env);
+	mlx_hook(env.win_ptr, 2, (1L << 0), &key_hook, &env);
 	mlx_loop(env.mlx);
 }
