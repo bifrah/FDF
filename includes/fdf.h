@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/03 20:31:17 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/03 20:33:08 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,9 @@ typedef struct s_env {
 # define MAGENTA	0x00FF00FF
 
 # define NUMPAD_1 65436
+# define NUMPAD_2 65437
+# define NUMPAD_3 65438
+# define NUMPAD_4 65439
+# define NUMPAD_5 65440
 
 #endif
