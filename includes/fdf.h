@@ -6,13 +6,15 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/03 21:01:42 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/05 12:31:55 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
+#include "../mlx_linux/mlx.h"
+#include "../mlx_linux/mlx_int.h"
 # include "../libft/libft.h"
 
 typedef struct s_env {
@@ -26,6 +28,11 @@ typedef struct s_env {
 	int		img_x;
 	int		img_y;
 }				t_env;
+
+int		key_hook(int keycode, t_env *env);
+void	ft_draw(t_env *env);
+void	my_mlx_pixel_put(t_env *env, int x, int y, int color);
+void	ft_setenv(t_env *env);
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00
