@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/05 12:31:55 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/05 15:38:24 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include "../mlx_linux/mlx.h"
 #include "../mlx_linux/mlx_int.h"
-# include "../libft/libft.h"
+#include "../libft/libft.h"
+#include "../gnl/get_next_line.h"
 
 typedef struct s_env {
 	void	*mlx;
