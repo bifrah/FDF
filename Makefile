@@ -8,7 +8,8 @@ OBJ_PATH = obj/
 
 INC_NAME = fdf.h
 MINILIBX_LIB_PATH = ./mlx_linux/libmlx_Linux.a
-SRC_NAME =	main.c
+SRC_NAME =	main.c \
+			check_input.c
 
 LIBX_LINUX_FLAGS = -lm -lbsd -lX11 -lXext
 

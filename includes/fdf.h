@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/06 12:08:08 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/06 12:46:29 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		key_hook(int keycode, t_env *env);
 void	ft_draw(t_env *env);
 void	my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void	ft_setenv(t_env *env);
+int		ft_check_input(int argc, char **argv);
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00
@@ -59,8 +60,8 @@ void	ft_setenv(t_env *env);
 # define ESC		65307
 
 # define NB_PARAM_ERROR	-2
-# define MAP_ERROR		-3
-# define MALLOC_ERROR	-4
-# define OTHER_ERROR	-5
+# define INPUT_ERROR	-3
+# define MAP_ERROR		-4
+# define MALLOC_ERROR	-5
 
 #endif

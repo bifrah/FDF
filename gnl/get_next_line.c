@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:28:57 by bifrah            #+#    #+#             */
-/*   Updated: 2021/09/09 00:27:01 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/06 12:50:19 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*stat_with_n(char *line, char *stat)
 	char			*tmp;
 
 	j = 0;
-	line = ft_strjoin(line, stat);
+	line = ft_strjoin_gnl(line, stat);
 	i = find_n(line);
 	tmp = ft_strdup(stat);
 	i++;
@@ -82,7 +82,7 @@ char	*read_me_please(int fd, char *buff, char *line, char *stat)
 	{
 		ret = read(fd, buff, BUFFER_SIZE);
 		buff[ret] = '\0';
-		line = ft_strjoin(line, buff);
+		line = ft_strjoin_gnl(line, buff);
 	}
 	if (ret == 0 && ft_strlen(stat) != 0)
 		line = ft_last_line(line, stat);
@@ -112,7 +112,7 @@ char	*get_next_line(int fd)
 			line = stat_with_n(line, stat);
 			return (line);
 		}
-		line = ft_strjoin(line, stat);
+		line = ft_strjoin_gnl(line, stat);
 		stat[0] = '\0';
 	}
 	line = read_me_please(fd, buff, line, stat);

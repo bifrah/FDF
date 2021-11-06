@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   setenv.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/06 13:06:57 by bifrah           ###   ########.fr       */
+/*   Created: 2021/11/06 12:48:00 by bifrah            #+#    #+#             */
+/*   Updated: 2021/11/06 12:48:15 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int ft_check_input(int argc, char **argv)
+void	ft_setenv(t_env *env)
 {
-	int	fd;
-
-	if (argc != 2)
-		return (NB_PARAM_ERROR);
-	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
-		return (INPUT_ERROR);
-	return (fd);
+	env->img_x = 0;
+	env->img_y = 0;
+	env->mlx = mlx_init();
+	env->win_ptr = mlx_new_window(env->mlx, 1920, 1080, "Hello world !");
 }
-
-//int	ft_check_map()
