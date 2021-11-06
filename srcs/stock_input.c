@@ -6,13 +6,13 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:53 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/06 12:39:39 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/06 13:41:34 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void    stock_input(char **argv)
+void    ft_stock_input(char **argv)
 {
 	
 }
