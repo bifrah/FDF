@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/06 13:55:18 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/06 15:15:03 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	ft_draw(t_env *env);
 void	my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void	ft_setenv(t_env *env);
 int		ft_check_input(int argc, char **argv);
+int		ft_check_map(int fd, t_dlist *list);
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00

@@ -9,7 +9,6 @@ OBJ_PATH = obj/
 INC_NAME = fdf.h
 MINILIBX_LIB_PATH = ./mlx_linux/libmlx_Linux.a
 LIBFT_LIB_PATH = ./libft/libft.a
-DLIST_LIB_PATH = ./doubleliste/dlist.a
 SRC_NAME =	main.c \
 			check_input.c
 
@@ -33,7 +32,7 @@ $(NAME): $(OBJ)
 	@echo "$(RED)[fdf] : $(DEF)Compilation..."
 	@make -C libft
 	@make -C mlx_linux
-	@$(CC) $(PARAMS) $(OBJ) $(LIBFT_LIB_PATH) $(DLIST_LIB_PATH) $(MINILIBX_LIB_PATH) ${LIBX_LINUX_FLAGS} -o $(NAME) $(INC) -L libft/
+	@$(CC) $(PARAMS) $(OBJ) $(LIBFT_LIB_PATH) $(MINILIBX_LIB_PATH) ${LIBX_LINUX_FLAGS} -o $(NAME) $(INC) -L libft/
 	@echo "$(RED)[fdf] : $(DEF)Compilation                 $(GRN)[OK]$(DEF)"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c

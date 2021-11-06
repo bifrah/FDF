@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_dlistdel.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/17 17:29:07 by bifrah            #+#    #+#             */
-/*   Updated: 2021/06/17 17:29:08 by bifrah           ###   ########.fr       */
+/*   Created: 2019/01/30 16:59:48 by mtordjma          #+#    #+#             */
+/*   Updated: 2021/11/06 14:45:16 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_dlistdel(t_dlist **p_list)
 {
-	unsigned int	i;
+	t_dnode *p_temp;
+	t_dnode *p_del;
 
-	i = 0;
-	while (lst)
+	if (*p_list != NULL)
 	{
-		lst = lst->next;
-		i++;
+		p_temp = (*p_list)->p_head;
+		while (p_temp != NULL)
+		{
+			p_del = p_temp;
+			p_temp = p_temp->p_next;
+			free(p_del);
+		}
+		free(*p_list);
+		*p_list = NULL;
 	}
-	return (i);
 }

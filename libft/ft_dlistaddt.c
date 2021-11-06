@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dlistaddt.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtordjma <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 17:04:16 by mtordjma          #+#    #+#             */
-/*   Updated: 2019/01/30 17:05:48 by mtordjma         ###   ########.fr       */
+/*   Updated: 2021/11/06 14:45:11 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "dlist.h"
+#include "libft.h"
 
 t_dnode	*ft_dlistaddt(t_dlist **p_list)
 {

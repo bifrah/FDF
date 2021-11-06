@@ -6,18 +6,29 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 14:27:41 by bifrah            #+#    #+#             */
-/*   Updated: 2021/06/17 17:33:15 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/06 14:58:22 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-typedef struct s_list
+# include <stdlib.h>
+
+typedef struct		s_dnode
 {
-	void			*content;
-	struct s_list	*next;
-}				t_list;
+	char			*data;
+	struct s_dnode	*p_next;
+	struct s_dnode	*p_prev;
+}					t_dnode;
+
+typedef struct		s_dlist
+{
+	unsigned int	length;
+	t_dnode	*p_head;
+	t_dnode	*p_tail;
+}					t_dlist;
+
 
 void			*ft_memset(void *s, int c, unsigned int n);
 void			*ft_bzero(void *s, unsigned int n);
@@ -54,15 +65,10 @@ void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
-t_list			*ft_lstnew(void *content);
-void			ft_lstadd_front(t_list **alst, t_list *new);
-int				ft_lstsize(t_list *lst);
-t_list			*ft_lstlast(t_list *lst);
-void			ft_lstadd_back(t_list **alst, t_list *new);
-void			ft_lstdelone(t_list *lst, void (*del)(void *));
-void			ft_lstclear(t_list **lst, void (*del)(void*));
-void			ft_lstiter(t_list *lst, void (*f)(void*));
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
-					void (*del)(void *));
+
+t_dnode				*ft_dlistaddh(t_dlist **p_list);
+t_dnode				*ft_dlistaddt(t_dlist **p_list);
+t_dlist				*ft_dlistnew(void);
+void				ft_dlistdel(t_dlist **p_list);
 
 #endif
