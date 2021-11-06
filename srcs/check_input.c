@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/06 15:17:12 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/06 15:30:34 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,18 @@ int	ft_check_map(int fd, t_dlist *list)
 	while (tmp != NULL)
 	{
 		tmp = get_next_line(fd);
+		while (tmp[i])
+		{
+			if (fpclassify((float)tmp[i]) != FP_NORMAL
+				|| fpclassify((float)tmp[i]) != FP_ZERO)
+				return (MAP_ERROR);
+			i++;
+			if (checkspace(tmp[i]) != 32)
+				return (MAP_ERROR);
+			i++;
+		}
 		ft_dlistaddt(&list);
-		list->p_tail = ft_stock_input(/*ligne 1 puis 2 etc...*/);
-		if (fpclassify((float)str[i]) != FP_NORMAL
-			|| fpclassify((float)str[i]) != FP_ZERO)
-			return (MAP_ERROR);
-		i++;
-		if (checkspace(str[i]) != 32)
-			return (MAP_ERROR);
+		list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
 		line++;
 	}
 }
