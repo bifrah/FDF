@@ -6,17 +6,17 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/05 15:38:24 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/06 12:08:08 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-#include "../mlx_linux/mlx.h"
-#include "../mlx_linux/mlx_int.h"
-#include "../libft/libft.h"
-#include "../gnl/get_next_line.h"
+# include "../mlx_linux/mlx.h"
+# include "../mlx_linux/mlx_int.h"
+# include "../libft/libft.h"
+# include "../gnl/get_next_line.h"
 
 typedef struct s_env {
 	void	*mlx;
@@ -57,5 +57,10 @@ void	ft_setenv(t_env *env);
 
 # define BACKSPACE	65288
 # define ESC		65307
+
+# define NB_PARAM_ERROR	-2
+# define MAP_ERROR		-3
+# define MALLOC_ERROR	-4
+# define OTHER_ERROR	-5
 
 #endif
