@@ -6,7 +6,7 @@
 #    By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/04 14:27:45 by bifrah            #+#    #+#              #
-#    Updated: 2021/11/06 14:43:38 by bifrah           ###   ########.fr        #
+#    Updated: 2021/11/09 10:43:48 by bifrah           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS =		ft_bzero.c ft_isalpha.c ft_isdigit.c ft_memccpy.c ft_memcmp.c ft_memmove
 			ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strlcpy.c ft_strlcat.c ft_strnstr.c \
 			ft_atoi.c ft_strdup.c ft_calloc.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c \
 			ft_itoa.c ft_strmapi.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-			ft_dlistaddh.c ft_dlistaddt.c ft_dlistnew.c ft_dlistdel.c
+			ft_dlistaddh.c ft_dlistaddt.c ft_dlistnew.c ft_dlistdel.c ft_checkspace.c
 OBJ =	$(SRCS:.c=.o)
 
 OBJ_BONUS =	$(BONUS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 14:27:41 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/06 14:58:22 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/09 10:44:34 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 
+int				ft_checkspace(int c);
 t_dnode				*ft_dlistaddh(t_dlist **p_list);
 t_dnode				*ft_dlistaddt(t_dlist **p_list);
 t_dlist				*ft_dlistnew(void);
