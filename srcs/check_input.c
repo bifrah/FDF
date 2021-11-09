@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 16:49:18 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/09 18:06:41 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	ft_check_map(int fd, t_dlist *list)
 		len_act = ft_strlen(tmp);
 		if (line > 0 && len_tmp != len_act)
 			return (MAP_ERROR);
+		printf("len avant : %d\nlen actuel : %d\n", len_tmp, len_act);
 		len_tmp = len_act;
 		while (tmp[i])
 		{
