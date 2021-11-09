@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/05 12:33:46 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/09 11:13:38 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,3 @@ int	key_hook(int keycode, t_env *env)
 	ft_draw(env);
 	return (0);
 }
-

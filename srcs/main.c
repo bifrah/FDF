@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/06 15:15:10 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/09 11:15:01 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ int	ft_print_error(int errcode)
 int	main(int argc, char **argv)
 {
 	// t_env	env;
-	t_dlist *list;
-	int	fd;
+	t_dlist	*list;
+	int		fd;
 
 	list = ft_dlistnew();
-	if ((fd = ft_check_input(argc, argv)) < 0)
+	fd = ft_check_input(argc, argv);
+	if (fd < 0)
 		return (ft_print_error(fd));
 	ft_check_map(fd, &list);
 	// ft_setenv(&env);

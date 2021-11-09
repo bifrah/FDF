@@ -6,13 +6,13 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 10:44:44 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/09 11:12:54 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-int ft_check_input(int argc, char **argv)
+int	ft_check_input(int argc, char **argv)
 {
 	int	fd;
 
@@ -24,7 +24,7 @@ int ft_check_input(int argc, char **argv)
 	return (fd);
 }
 
-int	ft_check_map(int fd, t_dlist *list)
+int	ft_check_map(int fd, t_dlist **list)
 {
 	char	*tmp;
 	int		line;
@@ -32,22 +32,25 @@ int	ft_check_map(int fd, t_dlist *list)
 
 	line = 0;
 	i = 0;
-	while (tmp = get_next_line(fd)) // check toutes erreur possible et free si error
+	while ((tmp = get_next_line(fd))) //check toutes erreur possible et free si error
 	{
 		while (tmp[i])
 		{
 			if (fpclassify((float)tmp[i]) != FP_NORMAL
 				|| fpclassify((float)tmp[i]) != FP_ZERO)
+				//freememory(&list);
 				return (MAP_ERROR);
 			i++;
 			if (tmp[i] && ft_checkspace(tmp[i]) == 0)
+				//freememory(&list);
 				return (MAP_ERROR);
 			i++;
 		}
 		ft_dlistaddt(&list);
-		list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
+		**list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
 		line++;
 	}
+	return (0);
 }
 
 /*
