@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 11:12:54 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/09 14:21:00 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_check_input(int argc, char **argv)
 	return (fd);
 }
 
-int	ft_check_map(int fd, t_dlist **list)
+int	ft_check_map(int fd, t_dlist *list)
 {
 	char	*tmp;
 	int		line;
@@ -47,7 +47,7 @@ int	ft_check_map(int fd, t_dlist **list)
 			i++;
 		}
 		ft_dlistaddt(&list);
-		**list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
+		list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
 		line++;
 	}
 	return (0);

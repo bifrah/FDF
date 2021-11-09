@@ -6,11 +6,11 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:29:02 by bifrah            #+#    #+#             */
-/*   Updated: 2021/08/22 16:23:16 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/09 14:17:23 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../includes/fdf.h"
 
 unsigned int	ft_strlen(const char *str)
 {
@@ -36,7 +36,7 @@ int	find_n(const char *s)
 	return (-1);
 }
 
-char	*ft_strjoin(char *s1, char const *s2)
+char	*ft_strjoin_gnl(char *s1, char const *s2)
 {
 	unsigned int	i;
 	unsigned int	j;

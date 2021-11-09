@@ -10,7 +10,9 @@ INC_NAME = fdf.h
 MINILIBX_LIB_PATH = ./mlx_linux/libmlx_Linux.a
 LIBFT_LIB_PATH = ./libft/libft.a
 SRC_NAME =	main.c \
-			check_input.c
+			check_input.c \
+			get_next_line.c \
+			get_next_line_utils.c
 
 LIBX_LINUX_FLAGS = -lm -lbsd -lX11 -lXext
 

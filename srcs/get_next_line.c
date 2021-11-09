@@ -6,13 +6,11 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:28:57 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/06 15:53:20 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/09 14:17:27 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-#include <unistd.h>
-#include <stdlib.h>
+#include "../includes/fdf.h"
 
 char	*first_call(char **line, char *stat)
 {
