@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/13 18:32:00 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/13 19:02:34 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,24 +48,28 @@ int	ft_check_map(int fd, t_dlist *list)
 		}
 		while (tmp[i] != '\n')	// (3) check caracteres de chaque ligne
 		{
-			if (tmp[i] != '\n' && ft_isdigit(tmp[i]) == 0)
+			if (tmp[i] && ft_isdigit(tmp[i]) == 0)
 			{
-				write(1, "ERROR 1 HERE\n", 13);
+				write(1, "ERROR : Number\n", 15);
 				ft_dlistdel(&list);
 				return (MAP_ERROR);
 			}
 			i++;
-			if (tmp[i] != '\n' && ft_checkspace(tmp[i]) == 0)
+			if (tmp[i] == '\n')
 			{
-				write(1, "ERROR 2 HERE\n", 13);
+				ft_dlistaddt(&list);
+				list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
+				line++;
+				return (LINE_IN_DATA);
+			}
+			if (tmp[i] && ft_checkspace(tmp[i]) == 0)
+			{
+				write(1, "ERROR : Space\n", 14);
 				ft_dlistdel(&list);
 				return (MAP_ERROR);
 			}
 			i++;
 		}
-		ft_dlistaddt(&list);
-		list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
-		line++;
 	}
 	return (LINE_IN_DATA);
 }
