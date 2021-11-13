@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/13 21:45:12 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/13 23:59:48 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,50 +24,60 @@ int	ft_check_input(int argc, char **argv)
 	return (fd);
 }
 
-int	ft_check_map(int fd, t_dlist *list)
+int	ft_lineisnum(char **dest)	//dest[0] = -20; dest[1] = 1; dest[2] = 2\n; dest[3] = NULL;
 {
-	char	*tmp;
-	int		line;
-	int		i;
-	int		len_old;
-	int		len_act;
-
-	line = 0;
+	int	j;						//dest[0][0] = -
+	int	i;						//dest[0][1] = 2
+								//dest[0][2] = 0
+	j = 0;
 	i = 0;
-	while ((tmp = get_next_line(fd))) // (1) check si vide
-	{
-		len_act = ft_strlen(tmp);
-		if (line == 0) // (2) check len chaque ligne identique
-			len_old = len_act;
-		if (len_old != len_act)
-			return (MAP_ERROR);
-		while (tmp[i] != '\n')	// (3) check caracteres de chaque ligne
+	if (dest == NULL)
+		return (0);
+	while (dest[j])
+	{	
+		if (dest[j][0] == '-' && i == 0)
+			i = 1;
+		while (dest[j][i])
 		{
-			if (tmp[i] && ft_isdigit(tmp[i]) == 0)
-			{
-				//write(1, "ERROR : Number\n", 15);
-				ft_dlistdel(&list);
-				return (MAP_ERROR);
-			}
-			i++;
-			if (tmp[i] == '\n')
-			{
-				ft_dlistaddt(&list);
-				list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
-				printf("data : %s\n", list->p_tail->data);
-				line++;
-				return (LINE_IN_DATA);
-			}
-			if (tmp[i] && ft_checkspace(tmp[i]) == 0)
-			{
-				//write(1, "ERROR : Space\n", 14);
-				ft_dlistdel(&list);
-				return (MAP_ERROR);
-			}
+			if (ft_isdigit(dest[j][i]) == 0)
+				return (-1);
 			i++;
 		}
+		if(i > 5)
+			return (-1);
+		printf("dest[%d] = %s\n", j, dest[j]);
+		j++;
+		i = 0;
 	}
-	return (LINE_IN_DATA);
+	return (0);
+}
+
+int	ft_check_map(int fd)
+{
+	char	**dest;
+	char	*tmp;
+	int		len_ref;
+	int		len_tmp;
+	int		line;
+
+	line = 0;
+	while ((tmp = get_next_line(fd)) != NULL && tmp[0]) // (1) check si vide
+	{
+		len_tmp = ft_strlen(tmp);
+		if (line == 0)
+			len_ref = len_tmp;
+		if (len_tmp != len_ref)
+			return (MAP_ERROR);
+		dest = ft_split(tmp, ' ');
+		if (ft_lineisnum(dest) == -1)
+			return (MAP_ERROR);
+		free(tmp);
+		free(dest);
+		line++;
+	}
+	if (tmp == NULL)
+		return (0);
+	return (-1);
 }
 
 /*

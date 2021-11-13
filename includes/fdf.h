@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/13 18:21:28 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/13 23:40:07 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 
 # include <math.h>
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "../mlx_linux/mlx.h"
@@ -33,12 +34,17 @@ typedef struct s_env {
 	int		img_y;
 }				t_env;
 
+typedef struct s_check {
+
+
+}				t_check;
+
 int		key_hook(int keycode, t_env *env);
 void	ft_draw(t_env *env);
 void	my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void	ft_setenv(t_env *env);
 int		ft_check_input(int argc, char **argv);
-int		ft_check_map(int fd, t_dlist *list);
+int		ft_check_map(int fd);
 
 
 # define RED		0x00FF0000
@@ -63,8 +69,6 @@ int		ft_check_map(int fd, t_dlist *list);
 
 # define BACKSPACE	65288
 # define ESC		65307
-
-# define LINE_IN_DATA	-42
 
 # define NB_PARAM_ERROR	-2
 # define INPUT_ERROR	-3
