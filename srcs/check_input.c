@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 18:06:41 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/13 15:27:41 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,23 +34,32 @@ int	ft_check_map(int fd, t_dlist *list)
 
 	line = 0;
 	i = 0;
-	while ((tmp = get_next_line(fd))) //check toutes erreur possible et free si error
+	while ((tmp = get_next_line(fd))) // (1) check si vide 
 	{
-		len_act = ft_strlen(tmp);
-		if (line > 0 && len_tmp != len_act)
-			return (MAP_ERROR);
-		printf("len avant : %d\nlen actuel : %d\n", len_tmp, len_act);
-		len_tmp = len_act;
-		while (tmp[i])
+		if (line > 0) // (2) check len chaque ligne identique
 		{
-			if (fpclassify((float)tmp[i]) != FP_NORMAL
-				|| fpclassify((float)tmp[i]) != FP_ZERO)
+			len_act = ft_strlen(tmp);
+			if (len_tmp != len_act)
+				return (MAP_ERROR);
+			printf("len avant : %d\nlen actuel : %d\n", len_tmp, len_act);
+			len_tmp = len_act;
+		}
+		while (tmp[i])	// (3) check caracteres de chaque ligne
+		{
+			if (ft_isdigit(tmp[i]) == 1)
 			{
 				ft_dlistdel(&list);
 				return (MAP_ERROR);
 			}
 			i++;
-			if (tmp[i] && ft_checkspace(tmp[i]) == 0)
+			if (tmp[i] && ft_checkspace(tmp[i]) == 1)
+			{
+				ft_dlistdel(&list);
+				return (MAP_ERROR);
+			}
+			i++;
+			if (tmp[i] && (ft_checkspace(tmp[i]) == 1
+					|| ft_isdigit(tmp[i]) == 1))
 			{
 				ft_dlistdel(&list);
 				return (MAP_ERROR);
@@ -67,9 +76,9 @@ int	ft_check_map(int fd, t_dlist *list)
 /*
 Lire ligne par ligne (et stocker chaques lignes)
 Verifier si :
-- Pas vide
-- Chaque lignes a le meme nombre de caractere
-- Est compose de "nb nb nb nb..."
+- (1) Pas vide
+- (2) Chaque lignes a le meme nombre de caractere
+- (3) Est compose de "nb  nb  nb  nb..."
 - Les nb soient assez proche pour entrer dans la fenetre 1920*1080
 - La map entre entierement dans la fenetre
 */
