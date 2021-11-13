@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/13 15:27:41 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/13 18:32:00 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,24 @@ int	ft_check_map(int fd, t_dlist *list)
 		{
 			len_act = ft_strlen(tmp);
 			if (len_tmp != len_act)
+			{
 				return (MAP_ERROR);
+			}
 			printf("len avant : %d\nlen actuel : %d\n", len_tmp, len_act);
 			len_tmp = len_act;
 		}
-		while (tmp[i])	// (3) check caracteres de chaque ligne
+		while (tmp[i] != '\n')	// (3) check caracteres de chaque ligne
 		{
-			if (ft_isdigit(tmp[i]) == 1)
+			if (tmp[i] != '\n' && ft_isdigit(tmp[i]) == 0)
 			{
+				write(1, "ERROR 1 HERE\n", 13);
 				ft_dlistdel(&list);
 				return (MAP_ERROR);
 			}
 			i++;
-			if (tmp[i] && ft_checkspace(tmp[i]) == 1)
+			if (tmp[i] != '\n' && ft_checkspace(tmp[i]) == 0)
 			{
-				ft_dlistdel(&list);
-				return (MAP_ERROR);
-			}
-			i++;
-			if (tmp[i] && (ft_checkspace(tmp[i]) == 1
-					|| ft_isdigit(tmp[i]) == 1))
-			{
+				write(1, "ERROR 2 HERE\n", 13);
 				ft_dlistdel(&list);
 				return (MAP_ERROR);
 			}
@@ -70,7 +67,7 @@ int	ft_check_map(int fd, t_dlist *list)
 		list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
 		line++;
 	}
-	return (0);
+	return (LINE_IN_DATA);
 }
 
 /*

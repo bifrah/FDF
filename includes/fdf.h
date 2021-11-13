@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 14:16:39 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/13 18:21:28 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int		ft_check_map(int fd, t_dlist *list);
 
 # define BACKSPACE	65288
 # define ESC		65307
+
+# define LINE_IN_DATA	-42
 
 # define NB_PARAM_ERROR	-2
 # define INPUT_ERROR	-3
