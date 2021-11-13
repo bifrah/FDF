@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/13 19:02:34 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/13 19:07:11 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,19 @@ int	ft_check_map(int fd, t_dlist *list)
 	char	*tmp;
 	int		line;
 	int		i;
-	int		len_tmp;
+	int		len_old;
 	int		len_act;
 
 	line = 0;
 	i = 0;
 	while ((tmp = get_next_line(fd))) // (1) check si vide 
 	{
+		len_act = ft_strlen(tmp);
 		if (line > 0) // (2) check len chaque ligne identique
 		{
-			len_act = ft_strlen(tmp);
-			if (len_tmp != len_act)
-			{
+			if (len_old != len_act)
 				return (MAP_ERROR);
-			}
-			printf("len avant : %d\nlen actuel : %d\n", len_tmp, len_act);
-			len_tmp = len_act;
+			len_old = len_act;
 		}
 		while (tmp[i] != '\n')	// (3) check caracteres de chaque ligne
 		{
@@ -59,6 +56,7 @@ int	ft_check_map(int fd, t_dlist *list)
 			{
 				ft_dlistaddt(&list);
 				list->p_tail->data = ft_strdup(tmp); //MALLOC GAFFE FDP
+				printf("tmp : %s\n", tmp);
 				line++;
 				return (LINE_IN_DATA);
 			}
