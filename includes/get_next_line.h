@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:28:52 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 11:03:42 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/13 22:34:15 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 
-# define BUFFER_SIZE 1920
+# define BUFFER_SIZE	1920
+# define FILE_PROBLEM	-42
 
 char				*get_next_line(int fd);
 unsigned int		ft_strlen(const char *str);

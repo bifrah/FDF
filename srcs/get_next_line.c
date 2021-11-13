@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/11 02:28:57 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 14:17:27 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/13 22:34:24 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ char	*get_next_line(int fd)
 	char			*line;
 
 	if (read(fd, buff, 0) == -1 || BUFFER_SIZE < 1 )
-		return (NULL);
+		return (FILE_PROBLEM);
 	line = ft_strdup("");
 	if (stat[0])
 	{
