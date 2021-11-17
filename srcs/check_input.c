@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/17 19:57:50 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/17 20:39:18 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int	ft_check_input(int argc, char **argv)
 	return (fd);
 }
 
-int	ft_lineisnum(char **dest)	//dest[0] = -20; dest[1] = 1; dest[2] = 2\n; dest[3] = NULL;
+int	ft_lineisnum(char **dest)
 {
-	int	j;						//dest[0][0] = -
-	int	i;						//dest[0][1] = 2
-								//dest[0][2] = 0
+	int	j;
+	int	i;
+
 	j = 0;
 	i = 0;
 	if (dest == NULL)
@@ -36,14 +36,18 @@ int	ft_lineisnum(char **dest)	//dest[0] = -20; dest[1] = 1; dest[2] = 2\n; dest[
 	while (dest[j])
 	{	
 		if (dest[j][0] == '-' && i == 0)
+		{
 			i = 1;
-		while (dest[j][i])
+			if (ft_isdigit(dest[j][i]) == 0)
+				return (-1);
+		}
+		while (dest[j][i] && dest[j][i] != '\n')
 		{
 			if (ft_isdigit(dest[j][i]) == 0)
 				return (-1);
 			i++;
 		}
-		if(i > 5)
+		if (i > 5)
 			return (-1);
 		printf("dest[%d] = %s\n", j, dest[j]);
 		j++;
@@ -52,20 +56,30 @@ int	ft_lineisnum(char **dest)	//dest[0] = -20; dest[1] = 1; dest[2] = 2\n; dest[
 	return (0);
 }
 
+int	ptrstrlen(char **dest)
+{
+	int	j;
+
+	j = 0;
+	while (dest[j])
+		j++;
+	return (j);
+}
+
 int	ft_check_map(int fd)
 {
 	char	**dest;
 	t_check	t_check;
 
 	t_check.line = 0;
-	while ((t_check.tmp = get_next_line(fd)) != NULL && t_check.tmp[0]) // (1) check si vide
+	while ((t_check.tmp = get_next_line(fd)) != NULL && t_check.tmp[0])
 	{
-		t_check.len_tmp = ft_strlen(t_check.tmp);
+		dest = ft_split(t_check.tmp, ' ');
+		t_check.len_tmp = ptrstrlen(dest);
 		if (t_check.line == 0)
 			t_check.len_ref = t_check.len_tmp;
 		if (t_check.len_tmp != t_check.len_ref)
 			return (MAP_ERROR);
-		dest = ft_split(t_check.tmp, ' ');
 		if (ft_lineisnum(dest) == -1)
 			return (MAP_ERROR);
 		free(t_check.tmp);
