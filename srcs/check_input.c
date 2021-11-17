@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/17 20:52:33 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/17 20:58:49 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	ft_lineisnum(char **dest)
 	int	j;
 	int	i;
 
-	j = 0;
+	j = -1;
 	i = 0;
 	if (dest == NULL)
 		return (0);
-	while (dest[j])
+	while (dest[++j])
 	{	
 		if (dest[j][0] == '-' && i == 0)
 		{
@@ -50,7 +50,6 @@ int	ft_lineisnum(char **dest)
 		if (i > 5)
 			return (-1);
 		printf("dest[%d] = %s\n", j, dest[j]);
-		j++;
 		i = 0;
 	}
 	return (0);
