@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/13 23:51:24 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/17 19:52:36 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printerr(int errcode)
 	if (errcode == INPUT_ERROR || errcode == NB_PARAM_ERROR)
 		ft_putstr_fd("Usage : ./fdf your_map.map\n", 2);
 	if (errcode == MAP_ERROR)
-		ft_putstr_fd("Map must have only int and space\n", 2);
+		ft_putstr_fd("Map must have only int space and \\n\n", 2);
 	if (errcode == MALLOC_ERROR)
 		ft_putstr_fd("Malloc error\n", 2);
 	return (errcode);

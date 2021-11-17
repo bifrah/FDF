@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/13 23:59:48 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/17 19:57:50 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,27 +55,24 @@ int	ft_lineisnum(char **dest)	//dest[0] = -20; dest[1] = 1; dest[2] = 2\n; dest[
 int	ft_check_map(int fd)
 {
 	char	**dest;
-	char	*tmp;
-	int		len_ref;
-	int		len_tmp;
-	int		line;
+	t_check	t_check;
 
-	line = 0;
-	while ((tmp = get_next_line(fd)) != NULL && tmp[0]) // (1) check si vide
+	t_check.line = 0;
+	while ((t_check.tmp = get_next_line(fd)) != NULL && t_check.tmp[0]) // (1) check si vide
 	{
-		len_tmp = ft_strlen(tmp);
-		if (line == 0)
-			len_ref = len_tmp;
-		if (len_tmp != len_ref)
+		t_check.len_tmp = ft_strlen(t_check.tmp);
+		if (t_check.line == 0)
+			t_check.len_ref = t_check.len_tmp;
+		if (t_check.len_tmp != t_check.len_ref)
 			return (MAP_ERROR);
-		dest = ft_split(tmp, ' ');
+		dest = ft_split(t_check.tmp, ' ');
 		if (ft_lineisnum(dest) == -1)
 			return (MAP_ERROR);
-		free(tmp);
+		free(t_check.tmp);
 		free(dest);
-		line++;
+		t_check.line++;
 	}
-	if (tmp == NULL)
+	if (t_check.tmp == NULL)
 		return (0);
 	return (-1);
 }
@@ -86,5 +83,4 @@ Verifier si :
 - (1) Pas vide
 - (2) Chaque lignes a le meme nombre de caractere
 - (3) Est compose de "nb  nb  nb  nb..."
-- La map entre entierement dans la fenetre
 */

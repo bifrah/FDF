@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/13 23:40:07 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/17 19:55:34 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,10 @@ typedef struct s_env {
 }				t_env;
 
 typedef struct s_check {
-
-
+	char	*tmp;
+	int		len_ref;
+	int		len_tmp;
+	int		line;
 }				t_check;
 
 int		key_hook(int keycode, t_env *env);
