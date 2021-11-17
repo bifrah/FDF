@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/17 20:39:18 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/17 20:52:33 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,24 +69,24 @@ int	ptrstrlen(char **dest)
 int	ft_check_map(int fd)
 {
 	char	**dest;
-	t_check	t_check;
+	t_check	check;
 
-	t_check.line = 0;
-	while ((t_check.tmp = get_next_line(fd)) != NULL && t_check.tmp[0])
+	check.line = 0;
+	while ((check.tmp = get_next_line(fd)) != NULL && check.tmp[0])
 	{
-		dest = ft_split(t_check.tmp, ' ');
-		t_check.len_tmp = ptrstrlen(dest);
-		if (t_check.line == 0)
-			t_check.len_ref = t_check.len_tmp;
-		if (t_check.len_tmp != t_check.len_ref)
+		dest = ft_split(check.tmp, ' ');
+		check.len_tmp = ptrstrlen(dest);
+		if (check.line == 0)
+			check.len_ref = check.len_tmp;
+		if (check.len_tmp != check.len_ref)
 			return (MAP_ERROR);
 		if (ft_lineisnum(dest) == -1)
 			return (MAP_ERROR);
-		free(t_check.tmp);
+		free(check.tmp);
 		free(dest);
-		t_check.line++;
+		check.line++;
 	}
-	if (t_check.tmp == NULL)
+	if (check.tmp == NULL)
 		return (0);
 	return (-1);
 }
