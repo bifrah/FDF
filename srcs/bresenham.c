@@ -34,7 +34,8 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 					}
 					else
 					{
-						dy = (e = dy) * 2;
+						e = dy;
+						dy = e * 2;
 						dx = dx * 2;
 						while (y1 != y1 + 1 && y1 != y2)
 						{
@@ -51,7 +52,9 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 					{
 						if (dx >= -dy)
 						{
-							dx = (e = dx) * 2 ; dy = dy * 2;
+							e = dx;
+							dx = e * 2;
+							dy = dy * 2;
 							while (x1 != x1 + 1 && x1 != x2)
 							{
 								ft_draw(x1, y1);
@@ -62,12 +65,12 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 									e += dx;
 								}
 							}
-
 						}
 					}
 					else
 					{
-						dy = (e = dy) * 2;
+						e = dy;
+						dy = e * 2;
 						dx = dx * 2;
 						while (y1 != y1 - 1 && y1 != y2)
 						{
@@ -95,7 +98,8 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 						{
 							if (-dx >= dy)
 							{
-								dx = (e = dx) * 2;
+								e = dx;
+								dx = e * 2;
 								dy = dy * 2;
 								while (x1 != x1 - 1 && x1 != x2)
 									ft_draw(x1, y1);
@@ -111,7 +115,8 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 				}
 				else
 				{
-					dy = (e = dy) * 2;
+					e = dy;
+					dy = e * 2;
 					dx = dx * 2;
 					while (y1 != y1 + 1 && y1 != y2)
 						ft_draw(x1, y1);
@@ -126,7 +131,8 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 				{
 					if (dx <= dy)
 					{
-						dx = (e = dx) * 2;
+						e = dx;
+						dx = e * 2;
 						dy = dy * 2;
 						while (x1 != x1 - 1 && x1 != x2)
 						{
@@ -141,7 +147,8 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 					}
 					else
 					{
-						dy = (e = dy) * 2;
+						e = dy;
+						dy = e * 2;
 						dx = dx * 2;
 						while (y1 != y1 - 1 && y1 != y2)
 							ft_draw(x1, y1);
