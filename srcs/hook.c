@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 11:13:38 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/18 07:23:01 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	key_hook(int keycode, t_env *env)
 {
+	if (keycode == ESC)
+		exit (0);
 	if (keycode == BACKSPACE)
 	{
 		env->img_x = 960;
