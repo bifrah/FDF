@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/18 03:23:48 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/18 03:42:27 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		ft_check_input(int argc, char **argv);
 int		ft_lineisnum(char **dest);
 int		ptrstrlen(char **dest);
 int		ft_check_map(int fd);
+void    ft_stock_input(int fd, t_dlist *list);
 
 
 # define RED		0x00FF0000
