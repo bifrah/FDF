@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/18 03:22:21 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/18 03:30:17 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,11 @@ int	ft_check_map(int fd)
 		check.tmp = get_next_line(fd);
 	}
 	if (check.tmp == NULL)
+	{
+		free(check.tmp);
 		return (0);
+	}
+	free(check.tmp);
 	return (-1);
 }
 
