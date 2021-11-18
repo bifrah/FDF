@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/17 20:58:49 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/18 03:22:21 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,30 @@ int	ft_check_input(int argc, char **argv)
 
 int	ft_lineisnum(char **dest)
 {
-	int	j;
-	int	i;
+	t_index	index;
 
-	j = -1;
-	i = 0;
+	index.j = -1;
+	index.i = 0;
 	if (dest == NULL)
 		return (0);
-	while (dest[++j])
+	while (dest[++index.j])
 	{	
-		if (dest[j][0] == '-' && i == 0)
+		if (dest[index.j][0] == '-' && index.i == 0)
 		{
-			i = 1;
-			if (ft_isdigit(dest[j][i]) == 0)
+			index.i = 1;
+			if (ft_isdigit(dest[index.j][index.i]) == 0)
 				return (-1);
 		}
-		while (dest[j][i] && dest[j][i] != '\n')
+		while (dest[index.j][index.i] && dest[index.j][index.i] != '\n')
 		{
-			if (ft_isdigit(dest[j][i]) == 0)
+			if (ft_isdigit(dest[index.j][index.i]) == 0)
 				return (-1);
-			i++;
+			index.i++;
 		}
-		if (i > 5)
+		if (index.i > 5)
 			return (-1);
-		printf("dest[%d] = %s\n", j, dest[j]);
-		i = 0;
+		printf("dest[%d] = %s\n", index.j, dest[index.j]);
+		index.i = 0;
 	}
 	return (0);
 }
@@ -71,19 +70,19 @@ int	ft_check_map(int fd)
 	t_check	check;
 
 	check.line = 0;
-	while ((check.tmp = get_next_line(fd)) != NULL && check.tmp[0])
+	check.tmp = get_next_line(fd);
+	while ((check.tmp != NULL && check.tmp[0]))
 	{
 		dest = ft_split(check.tmp, ' ');
 		check.len_tmp = ptrstrlen(dest);
 		if (check.line == 0)
 			check.len_ref = check.len_tmp;
-		if (check.len_tmp != check.len_ref)
-			return (MAP_ERROR);
-		if (ft_lineisnum(dest) == -1)
+		if (check.len_tmp != check.len_ref || ft_lineisnum(dest) == -1)
 			return (MAP_ERROR);
 		free(check.tmp);
 		free(dest);
 		check.line++;
+		check.tmp = get_next_line(fd);
 	}
 	if (check.tmp == NULL)
 		return (0);
