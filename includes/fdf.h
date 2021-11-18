@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/18 03:18:47 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/18 03:23:48 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	ft_draw(t_env *env);
 void	my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void	ft_setenv(t_env *env);
 int		ft_check_input(int argc, char **argv);
+int		ft_lineisnum(char **dest);
+int		ptrstrlen(char **dest);
 int		ft_check_map(int fd);
 
 
