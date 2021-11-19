@@ -23,7 +23,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 						dy = dy * 2;
 						while (x1 != x1 + 1 && x1 != x2)
 						{
-							ft_draw(x1, y1);
+							my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 							e -= dy;
 							if (e < 0)
 							{
@@ -39,7 +39,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 						dx = dx * 2;
 						while (y1 != y1 + 1 && y1 != y2)
 						{
-							ft_draw(x1, y1);
+							my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 							e -= dx;
 							if (e < 0)
 							{
@@ -57,7 +57,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 							dy = dy * 2;
 							while (x1 != x1 + 1 && x1 != x2)
 							{
-								ft_draw(x1, y1);
+								my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 								e += dy;
 								if (e < 0)
 								{
@@ -74,7 +74,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 						dx = dx * 2;
 						while (y1 != y1 - 1 && y1 != y2)
 						{
-							ft_draw(x1, y1);
+							my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 							e += dx;
 							if (e > 0)
 							{
@@ -87,7 +87,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 				if (dy == 0 && dx > 0)
 				{
 					while (x1 != x1 + 1 && x1 != x2)
-						ft_draw(x1, y1);
+						my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 				}
 				if (dx < 0)
 				{
@@ -102,7 +102,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 								dx = e * 2;
 								dy = dy * 2;
 								while (x1 != x1 - 1 && x1 != x2)
-									ft_draw(x1, y1);
+									my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 								e += dy;
 								if (e >= 0)
 								{
@@ -119,7 +119,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 					dy = e * 2;
 					dx = dx * 2;
 					while (y1 != y1 + 1 && y1 != y2)
-						ft_draw(x1, y1);
+						my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 					e += dx;
 					if (e <= 0)
 					{
@@ -136,7 +136,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 						dy = dy * 2;
 						while (x1 != x1 - 1 && x1 != x2)
 						{
-							ft_draw(x1, y1);
+							my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 							e -= dy;
 							if (e >= 0)
 							{
@@ -151,7 +151,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 						dy = e * 2;
 						dx = dx * 2;
 						while (y1 != y1 - 1 && y1 != y2)
-							ft_draw(x1, y1);
+							my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 						e -= dx;
 						if (e >= 0)
 						{
@@ -163,7 +163,7 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 				if (dy == 0 && dx < 0)
 				{	
 					while (x1 != x1 - 1 && x1 != x2)
-						ft_draw(x1, y1);
+						my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 				}
 			}
 			if (dx == 0)
@@ -174,12 +174,12 @@ void	tracer_segment(int x1, int y1, int x2, int y2)
 					if (dy > 0)
 					{
 						while (y1 != y1 + 1 && y1 != y2)
-							ft_draw(x1, y1);
+							my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 					}
 					if (dy < 0 && dx == 0)
 					{
 						while (y1 != y1 - 1 && y1 != y2)
-							ft_draw(x1, y1);
+							my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
 					}
 				}
 			}
