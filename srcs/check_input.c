@@ -48,7 +48,6 @@ int	ft_lineisnum(char **dest)
 		}
 		if (index.i > 5)
 			return (-1);
-		printf("dest[%d] = %s\n", index.j, dest[index.j]);
 		index.i = 0;
 	}
 	return (0);

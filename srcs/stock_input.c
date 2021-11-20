@@ -17,22 +17,28 @@ void    ft_stock_input(int fd, t_dlist *list)
 	char	**dest;
 	char	*tmp;
 	int		i;
+	int		line;
 
 	i = -1;
+	line = 0;
 	tmp = get_next_line(fd);
-	while ((tmp != NULL && tmp[0]))
+	while ((tmp != NULL))
 	{
+		write(1, "A", 1);
 		dest = ft_split(tmp, ' ');
 		while (dest[++i])
 		{
 			ft_dlistaddt(&list);
-			list->p_tail->data = ft_strdup(dest[i]);	
+			list->p_tail->data = ft_strdup(dest[i]);
 		}
+		list->p_tail->line = line;
+		printf("line = %d\n data = %s\n", line, list->p_tail->data);
 		free(tmp);
 		free(dest);
+		line++;
 		tmp = get_next_line(fd);
 	}
-	return (-1);
+	return ;
 }
 
 

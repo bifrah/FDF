@@ -25,18 +25,19 @@ int	ft_printerr(int errcode)
 
 int	main(int argc, char **argv)
 {
-	// t_env	env;
-	//t_dlist	*list;
+	t_env	env;
+	t_dlist	*list;
 	int		fd;
 
-	//list = ft_dlistnew();
+	list = ft_dlistnew();
 	fd = ft_check_input(argc, argv);
 	if (ft_printerr(fd) < 0)
 		return (-1);
 	if (ft_printerr(ft_check_map(fd)) < 0)
 		return (-1);
-	// ft_setenv(&env);
-	// ft_draw(&env);
-	// mlx_hook(env.win_ptr, 2, (1L << 0), &key_hook, &env);
-	// mlx_loop(env.mlx);
+	ft_setenv(&env);
+	ft_stock_input(fd, list);
+	//ft_draw(&env);
+	mlx_hook(env.win_ptr, 2, (1L << 0), &key_hook, &env);
+	mlx_loop(env.mlx);
 }

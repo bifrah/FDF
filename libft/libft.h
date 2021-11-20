@@ -18,6 +18,7 @@
 typedef struct		s_dnode
 {
 	char			*data;
+	int				line;
 	struct s_dnode	*p_next;
 	struct s_dnode	*p_prev;
 }					t_dnode;
