@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/18 03:30:17 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/22 17:35:24 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,34 @@ int	ptrstrlen(char **dest)
 	j = 0;
 	while (dest[j])
 		j++;
+	if (j == 1 && dest[0][0] == '\n')
+		return (0);
 	return (j);
+}
+
+void ft_freetab(char ***dest)
+{
+	int y; 
+	
+	y = 0;
+	while(dest[0][y])
+	{
+		free(dest[0][y]);
+		y++;
+	}
+	free(*dest);
+	*dest = NULL;
+}
+
+void ft_free(char **tmp, char ***dest)
+{
+	if(*tmp)
+	{
+		free(*tmp);
+		*tmp = NULL;
+	}
+	if(dest && *dest)
+		ft_freetab(dest);
 }
 
 int	ft_check_map(int fd)
@@ -73,23 +100,22 @@ int	ft_check_map(int fd)
 	while ((check.tmp != NULL && check.tmp[0]))
 	{
 		dest = ft_split(check.tmp, ' ');
-		check.len_tmp = ptrstrlen(dest);
+		check.len_tmp = ptrstrlen(dest); 
 		if (check.line == 0)
-			check.len_ref = check.len_tmp;
+			check.len_ref = check.len_tmp; 
 		if (check.len_tmp != check.len_ref || ft_lineisnum(dest) == -1)
+		{
+			ft_free(&check.tmp, &dest);
 			return (MAP_ERROR);
-		free(check.tmp);
-		free(dest);
-		check.line++;
-		check.tmp = get_next_line(fd);
+		}
+		ft_free(&check.tmp, &dest);
+		check.line++; 
+		check.tmp = get_next_line(fd); 
 	}
-	if (check.tmp == NULL)
-	{
-		free(check.tmp);
+	ft_free(&check.tmp, NULL);
+	if (check.tmp == NULL && check.line != 0)
 		return (0);
-	}
-	free(check.tmp);
-	return (-1);
+	return (MAP_ERROR);
 }
 
 /*
@@ -99,3 +125,4 @@ Verifier si :
 - (2) Chaque lignes a le meme nombre de caractere
 - (3) Est compose de "nb  nb  nb  nb..."
 */
+// 1 0 1 => ["1", "0", "1\n", "\0"]
