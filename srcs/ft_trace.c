@@ -1,6 +1,6 @@
 #include "../includes/fdf.h"
 
-void	ligne(t_env env, int xi, int yi, int xf, int yf)
+void	ft_trace(t_env env, int xi, int yi, int xf, int yf)
 {
 	int	dx;
 	int	dy;
@@ -15,15 +15,22 @@ void	ligne(t_env env, int xi, int yi, int xf, int yf)
 	y = yi;
 	dx = xf - xi;
 	dy = yf - yi;
-	xinc = ( dx > 0 ) ? 1 : -1;
-	yinc = ( dy > 0 ) ? 1 : -1;
+	if (dx > 0)
+		xinc = 1;
+	else
+		xinc = -1;
+	if (dy > 0)
+		yinc = 1;
+	else
+		yinc = -1;
 	dx = abs(dx);
 	dy = abs(dy);
 	allume_pixel(x,y);
 	if (dx > dy)
 	{
 		cumul = dx / 2;
-		for ( i = 1 ; i <= dx ; i++ )
+		i = 0;
+		while (++i <= dx)
 		{
 			x += xinc;
 			cumul += dy;
@@ -38,7 +45,8 @@ void	ligne(t_env env, int xi, int yi, int xf, int yf)
 	else
 	{
 		cumul = dy / 2;
-		for (i = 1 ; i <= dy ; i++)
+		i = 0;
+		while (++i <= dy)
 		{
 			y += yinc;
 			cumul += dx;
