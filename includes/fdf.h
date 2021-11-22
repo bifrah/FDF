@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/18 03:42:27 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/22 18:09:22 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,24 @@ typedef struct s_index {
 	int		j;
 	int		k;
 }				t_index;
+
+typedef struct s_trace {
+	int		dx;
+	int		dy;
+	int		i;
+	int		xinc;
+	int		yinc;
+	int		cumul;
+	int		x;
+	int		y;
+}				t_trace;
+
+typedef struct s_point {
+	int		xa;
+	int		ya;
+	int		xb;
+	int		yb;
+}				t_point;
 
 int		key_hook(int keycode, t_env *env);
 void	ft_draw(t_env *env);
