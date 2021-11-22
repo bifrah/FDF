@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_trace.c                                         :+:      :+:    :+:   */
+/*   trace.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/22 18:18:20 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/22 18:20:44 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_trace(t_env env, t_point point, t_trace trace)
 		trace.yinc = -1;
 	trace.dx = abs(trace.dx);
 	trace.dy = abs(trace.dy);
-	allume_pixel(trace.x, trace.y);
+	my_mlx_pixel_put(&env, trace.x, trace.y, RED);
 	if (trace.dx > trace.dy)
 	{
 		trace.cumul = trace.dx / 2;
@@ -42,7 +42,7 @@ void	ft_trace(t_env env, t_point point, t_trace trace)
 				trace.cumul -= trace.dx;
 				trace.y += trace.yinc;
 			}
-			allume_pixel(trace.x, trace.y);
+			my_mlx_pixel_put(&env, trace.x, trace.y, RED);
 		}
 	}
 	else
@@ -58,7 +58,7 @@ void	ft_trace(t_env env, t_point point, t_trace trace)
 				trace.cumul -= trace.dy;
 				trace.x += trace.xinc;
 			}
-			allume_pixel(trace.x, trace.y);
+			my_mlx_pixel_put(&env, trace.x, trace.y, RED);
 		}
 	}
 }
