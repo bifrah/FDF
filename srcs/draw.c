@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 11:15:08 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/22 18:44:21 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-void	ft_draw(t_env *env)
+void	ft_draw(t_env *env, t_point point, t_trace trace)
 {
 	int	first_img;
 
@@ -31,7 +31,11 @@ void	ft_draw(t_env *env)
 	env->img_ptr = mlx_new_image(env->mlx, 1920, 1080);
 	env->img_data = mlx_get_data_addr(env->img_ptr, &env->bits_per_pixel,
 			&env->line_length, &env->endian);
-	my_mlx_pixel_put(env, env->img_x, env->img_y, RED);
+	//A remplir
+	
+	ft_trace(&env, &point, &trace);
+	
+	//Fin remplissage
 	mlx_put_image_to_window(env->mlx, env->win_ptr, env->img_ptr, 0, 0);
 	if (first_img == 1)
 		first_img = 0;
