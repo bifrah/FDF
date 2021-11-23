@@ -30,18 +30,15 @@ void    ft_stock_input(int fd, t_dlist *list)
 		{
 			ft_dlistaddt(&list);
 			list->p_tail->data = ft_strdup(dest[i]);
+			list->p_tail->line = line;
 		}
-		list->p_tail->line = line;
 		printf("line = %d\n data = %s\n", line, list->p_tail->data);
-		free(tmp);
-		free(dest);
+		ft_free(tmp, dest);
 		line++;
 		tmp = get_next_line(fd);
 	}
 	return ;
 }
-
-
 
 /*
 Tout est check, il ne reste plus qu'a tout stocker.

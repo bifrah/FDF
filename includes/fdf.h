@@ -61,8 +61,10 @@ typedef struct s_trace {
 typedef struct s_point {
 	int		xa;
 	int		ya;
+	int		za;
 	int		xb;
 	int		yb;
+	int		zb;
 }				t_point;
 
 int		key_hook(int keycode, t_env *env);

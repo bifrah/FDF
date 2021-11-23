@@ -17,12 +17,34 @@
 
 typedef struct		s_dnode
 {
-	char			*data;
-	int				line;
+	int				*x;
+	int				y;
 	struct s_dnode	*p_next;
 	struct s_dnode	*p_prev;
 }					t_dnode;
+/*
+tracer(t_point a, t_point b);
 
+t_dnode *node;
+t_point a;
+t_point b;
+
+int x = 0;
+int y = 0;
+
+a = {x, y, node.x[x]}
+b = {x + 1, y,  node.x[x + 1]}
+
+tracer(a, b);
+a = {x, y, node.x[x]}
+b = {x, y + 1,  node->p_next.x[x]}
+tracer(a, b);
+x++;
+
+4 6 0 0
+1 2 3 4
+
+*/
 typedef struct		s_dlist
 {
 	unsigned int	length;
