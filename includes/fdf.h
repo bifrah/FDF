@@ -67,7 +67,7 @@ typedef struct s_point {
 	int		zb;
 }				t_point;
 
-int		key_hook(int keycode, t_env *env);
+int		key_hook(int keycode, t_env *env, t_point point, t_trace trace);
 void	ft_draw(t_env *env, t_point point, t_trace trace);
 void	my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void	ft_setenv(t_env *env);
