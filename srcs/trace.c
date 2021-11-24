@@ -12,7 +12,7 @@
 
 #include "../includes/fdf.h"
 
-void	ft_trace(t_env env, t_point point, t_trace trace)
+void	ft_trace(t_env **env, t_point point, t_trace trace)
 {
 	trace.x = point.xa;
 	trace.y = point.ya;

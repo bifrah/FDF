@@ -33,7 +33,7 @@ void	ft_draw(t_env *env, t_point point, t_trace trace)
 			&env->line_length, &env->endian);
 	//A remplir
 	
-	ft_trace(&env, &point, &trace);
+	ft_trace(env, point, trace);
 	
 	//Fin remplissage
 	mlx_put_image_to_window(env->mlx, env->win_ptr, env->img_ptr, 0, 0);
