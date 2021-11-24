@@ -44,11 +44,8 @@ void    ft_stock_input(int fd, t_dlist *list)
 Tout est check, il ne reste plus qu'a tout stocker.
 1- Je creer un tmp auquel j'assigne gnl
 2- Dans **dest j'assigne chaque nombres dans une case
-3- Je creer et j'assigne pour chaques case de dest un nouvel element de list pour le stocker dans data
+3- Je creer et j'assigne pour chaques case de dest a une case de *x (*x = data)
 4- Je free tmp et dest
 5- Je recommence pour chaques lignes.
 
-TO DO :
-J'aimerais savoir quand je change de ligne afin que mon draw le sache aussi.
-A voir si Bresenham algo need de le savoir.
 */
