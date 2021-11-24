@@ -12,7 +12,7 @@
 
 #include "../includes/fdf.h"
 
-int	key_hook(int keycode, t_env *env)
+int	key_hook(int keycode, t_env *env, t_point point, t_trace trace)
 {
 	if (keycode == ESC)
 		exit (0);
@@ -29,6 +29,6 @@ int	key_hook(int keycode, t_env *env)
 		env->img_y += 1;
 	if (keycode == UP && env->img_y > 0)
 		env->img_y -= 1;
-	ft_draw(env);
+	ft_draw(env, point, trace);
 	return (0);
 }
