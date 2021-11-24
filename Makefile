@@ -13,11 +13,12 @@ SRC_NAME =	main.c \
 			get_next_line.c \
 			get_next_line_utils.c \
 			setenv.c \
-			check_input.c \
+			check_inputandmap.c \
 			stock_input.c \
 			hook.c \
 			draw.c \
-			bresenham.c
+			trace.c \
+			utils.c
 
 LIBX_LINUX_FLAGS = -lm -lbsd -lX11 -lXext
 
