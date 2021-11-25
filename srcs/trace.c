@@ -12,7 +12,7 @@
 
 #include "../includes/fdf.h"
 
-void	ft_trace(t_env **env, t_point point, t_trace trace)
+void	ft_trace(t_env *env, t_point point, t_trace trace)
 {
 	trace.x = point.xa;
 	trace.y = point.ya;
@@ -24,7 +24,7 @@ void	ft_trace(t_env **env, t_point point, t_trace trace)
 	trace.yinc = -1;
 	if ((point.yb - point.ya) > 0)
 		trace.yinc = 1;
-	my_mlx_pixel_put(&env, trace.x, trace.y, RED);
+	my_mlx_pixel_put(env, trace.x, trace.y, RED);
 	if (trace.dx > trace.dy)
 	{
 		trace.cumul = trace.dx / 2;
@@ -38,7 +38,7 @@ void	ft_trace(t_env **env, t_point point, t_trace trace)
 				trace.cumul -= trace.dx;
 				trace.y += trace.yinc;
 			}
-			my_mlx_pixel_put(&env, trace.x, trace.y, RED);
+			my_mlx_pixel_put(env, trace.x, trace.y, RED);
 		}
 	}
 	else
@@ -54,7 +54,7 @@ void	ft_trace(t_env **env, t_point point, t_trace trace)
 				trace.cumul -= trace.dy;
 				trace.x += trace.xinc;
 			}
-			my_mlx_pixel_put(&env, trace.x, trace.y, RED);
+			my_mlx_pixel_put(env, trace.x, trace.y, RED);
 		}
 	}
 }

@@ -29,11 +29,11 @@ void    ft_stock_input(int fd, t_dlist *list)
 		while (dest[++i])
 		{
 			ft_dlistaddt(&list);
-			list->p_tail->x[i] = ft_atoi(ft_strdup(dest[i]));
-		}
-		printf("line = %d\n data = %ls\n", line, list->p_tail->x);
+			list->p_tail->x[i] = ft_atoi(dest[i]);
+			list->p_tail->y = line;
+			printf("line = %d\n data = %d\n", list->p_tail->y, list->p_tail->x[i]);
+		}		
 		ft_free(&tmp, &dest);
-		list->p_tail->y = line;
 		line++;
 		tmp = get_next_line(fd);
 	}
