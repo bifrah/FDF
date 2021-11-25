@@ -27,10 +27,10 @@ void    ft_stock_input(char **argv, t_dlist *list)
 	printf("tmp : %s\n", tmp);
 	while ((tmp != NULL))
 	{
+		ft_dlistaddt(&list);
 		dest = ft_split(tmp, ' ');
 		while (dest[++i])
 		{
-			ft_dlistaddt(&list);
 			list->p_tail->x[i] = ft_atoi(dest[i]);
 			list->p_tail->y = line;
 			printf("line = %d\ndata = %d\n", list->p_tail->y, list->p_tail->x[i]);
