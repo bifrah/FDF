@@ -22,7 +22,7 @@ void    ft_stock_input(char **argv, t_dlist *list)
 
 	fd = open(argv[1], O_RDONLY);
 	i = -1;
-	line = 1;
+	line = 0;
 	tmp = get_next_line(fd);
 	printf("tmp : %s\n", tmp);
 	while ((tmp != NULL))
@@ -33,7 +33,7 @@ void    ft_stock_input(char **argv, t_dlist *list)
 			ft_dlistaddt(&list);
 			list->p_tail->x[i] = ft_atoi(dest[i]);
 			list->p_tail->y = line;
-			printf("line = %d\n data = %d\n", list->p_tail->y, list->p_tail->x[i]);
+			printf("line = %d\ndata = %d\n", list->p_tail->y, list->p_tail->x[i]);
 		}		
 		ft_free(&tmp, &dest);
 		line++;
