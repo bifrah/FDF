@@ -48,7 +48,10 @@ int	ft_check_map(int fd)
 	}
 	ft_free(&check.tmp, NULL);
 	if (check.tmp == NULL && check.line != 0)
+	{
+		close(fd);
 		return (0);
+	}
 	return (MAP_ERROR);
 }
 

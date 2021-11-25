@@ -34,7 +34,7 @@ int	main(int argc, char **argv)
 	if (ft_printerr(fd) < 0 || ft_printerr(ft_check_map(fd)) < 0)
 		return (-1);
 	ft_setenv(&env);
-	ft_stock_input(fd, list);
+	ft_stock_input(argv, list);
 	//ft_draw(&env);
 	mlx_hook(env.win_ptr, 2, (1L << 0), &key_hook, &env);
 	mlx_loop(env.mlx);

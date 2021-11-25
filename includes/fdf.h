@@ -77,7 +77,7 @@ int		ptrstrlen(char **dest);
 void	ft_freetab(char ***dest);
 void	ft_free(char **tmp, char ***dest);
 int		ft_check_map(int fd);
-void    ft_stock_input(int fd, t_dlist *list);
+void    ft_stock_input(char **argv, t_dlist *list);
 void	ft_trace(t_env *env, t_point point, t_trace trace);
 
 # define RED		0x00FF0000

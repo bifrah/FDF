@@ -12,19 +12,21 @@
 
 #include "../includes/fdf.h"
 
-void    ft_stock_input(int fd, t_dlist *list)
+void    ft_stock_input(char **argv, t_dlist *list)
 {
+	int		fd;
 	char	**dest;
 	char	*tmp;
 	int		i;
 	int		line;
 
+	fd = open(argv[1], O_RDONLY);
 	i = -1;
-	line = 0;
+	line = 1;
 	tmp = get_next_line(fd);
+	printf("tmp : %s\n", tmp);
 	while ((tmp != NULL))
 	{
-		write(1, "A", 1);
 		dest = ft_split(tmp, ' ');
 		while (dest[++i])
 		{
@@ -47,5 +49,4 @@ Tout est check, il ne reste plus qu'a tout stocker.
 3- Je creer et j'assigne pour chaques case de dest a une case de *x (*x = data)
 4- Je free tmp et dest
 5- Je recommence pour chaques lignes.
-
 */
