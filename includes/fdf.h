@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/22 18:47:15 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:10:32 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,15 @@ typedef struct s_env {
 	int		img_y;
 }				t_env;
 
-typedef struct s_check_or_stock {
+typedef struct s_param {
 	int		fd;
 	char	*tmp;
 	int		line;
 	int		i;
+	int		j;
 	int		len_ref;
 	int		len_tmp;
 }				t_param;
-
-typedef struct s_index {
-	int		i;
-	int		j;
-	int		k;
-}				t_index;
 
 typedef struct s_trace {
 	int		dx;

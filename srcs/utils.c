@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 13:05:05 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 13:06:29 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:11:22 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_lineisnum(char **dest)
 {
-	t_index	index;
+	t_param	index;
 
 	index.j = -1;
 	index.i = 0;
