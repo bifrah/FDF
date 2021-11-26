@@ -6,20 +6,11 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/22 18:44:21 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 15:03:30 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
-{
-	char	*dst;
-
-	dst = env->img_data + (y * env->line_length
-			+ x * (env->bits_per_pixel / 8));
-	*(unsigned int *)dst = color;
-}
 
 void	ft_draw(t_env *env, t_point point, t_trace trace)
 {
