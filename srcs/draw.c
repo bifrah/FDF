@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 18:03:45 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 18:05:52 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 
 
-void	ft_draw(t_env *env, t_dlist **list, t_point point)
+void	ft_draw(t_env *env, t_dlist *list, t_point point)
 {
 	int	first_img;
 

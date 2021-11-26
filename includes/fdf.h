@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 17:58:02 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 18:06:04 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct s_point {
 }				t_point;
 
 int		key_hook(int keycode, t_env *env, t_dlist *list, t_point point);
-void	ft_draw(t_env *env, t_dlist **list, t_point point);
+void	ft_draw(t_env *env, t_dlist *list, t_point point);
 void	my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void	ft_setenv(t_env *env);
 int		ft_check_input(int argc, char **argv);
