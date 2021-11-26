@@ -19,30 +19,28 @@ void    ft_stock_input(char **argv, t_dlist *list)
 	char	*tmp;
 	int		i;
 	int		line;
-
+	
 	fd = open(argv[1], O_RDONLY);
-	i = -1;
 	line = 0;
 	tmp = get_next_line(fd);
-	printf("tmp : %s\n", tmp);
-	write(1, "0\n", 2);
 	while ((tmp != NULL))
 	{
-		write(1, "1\n", 2);
+		printf("tmp : %s\n", tmp);
+		i = -1;
 		dest = ft_split(tmp, ' ');
 		ft_dlistaddt(&list);
 		list->p_tail->x = (int *)malloc(sizeof(int) * (ptrstrlen(dest)));
 		while (dest[++i])
 		{
-			write(1, "2\n", 2);
 			list->p_tail->x[i] = ft_atoi(dest[i]);
 			list->p_tail->y = line;
-			printf("line = %d\ndata = %d\n", list->p_tail->y, list->p_tail->x[i]);
+			printf("y = %d\nx[i] = %d\n", list->p_tail->y, list->p_tail->x[i]);
 		}		
 		ft_free(&tmp, &dest);
 		line++;
 		tmp = get_next_line(fd);
 	}
+	ft_free(&tmp, &dest);
 	return ;
 }
 
