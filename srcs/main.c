@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 14:31:50 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 17:54:02 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	main(int argc, char **argv)
 	t_env	env;
 	t_dlist	*list;
 	t_param	param;
+	t_point	point;
 
 	list = ft_dlistnew();
 	param.fd = ft_check_input(argc, argv);
@@ -57,7 +58,7 @@ int	main(int argc, char **argv)
 		return (-1);
 	ft_print_map(list);
 	ft_setenv(&env);
-	//ft_draw(&env);
+	ft_draw(&env, &list, point);
 	mlx_hook(env.win_ptr, 2, (1L << 0), &key_hook, &env);
 	mlx_loop(env.mlx);
 }

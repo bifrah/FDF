@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 13:59:56 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 17:54:47 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_param {
 	int		len_tmp;
 }				t_param;
 
-typedef struct s_trace {
+typedef struct s_point {
 	int		dx;
 	int		dy;
 	int		i;
@@ -53,19 +53,16 @@ typedef struct s_trace {
 	int		cumul;
 	int		x;
 	int		y;
-}				t_trace;
-
-typedef struct s_point {
 	int		xa;
 	int		ya;
 	int		za;
 	int		xb;
 	int		yb;
-	int		zb;
+	int		zb;	
 }				t_point;
 
-int		key_hook(int keycode, t_env *env, t_point point, t_trace trace);
-void	ft_draw(t_env *env, t_point point, t_trace trace);
+int		key_hook(int keycode, t_env *env, t_dlist **list, t_point point);
+void	ft_draw(t_env *env, t_dlist **list, t_point point);
 void	my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void	ft_setenv(t_env *env);
 int		ft_check_input(int argc, char **argv);
@@ -75,9 +72,9 @@ void	ft_freetab(char ***dest);
 void	ft_free(char **tmp, char ***dest);
 int		ft_check_map(int fd);
 int	    ft_stock_input(char **argv, t_dlist *list);
-void	ft_trace(t_env *env, t_point point, t_trace trace);
-void	ft_if(t_env *env, t_trace trace);
-void	ft_else(t_env *env, t_trace trace);
+void	ft_trace(t_env *env, t_point point);
+void	ft_if(t_env *env, t_point point);
+void	ft_else(t_env *env, t_point point);
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00

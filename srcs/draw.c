@@ -6,13 +6,17 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 15:03:30 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 17:52:33 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	ft_draw(t_env *env, t_point point, t_trace trace)
+
+
+
+
+void	ft_draw(t_env *env, t_dlist **list, t_point trace)
 {
 	int	first_img;
 
@@ -24,7 +28,10 @@ void	ft_draw(t_env *env, t_point point, t_trace trace)
 			&env->line_length, &env->endian);
 	//A remplir
 	
-	ft_trace(env, point, trace);
+
+
+
+	ft_trace(env, trace);
 	
 	//Fin remplissage
 	mlx_put_image_to_window(env->mlx, env->win_ptr, env->img_ptr, 0, 0);

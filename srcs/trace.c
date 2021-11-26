@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 15:03:38 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 17:55:14 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,55 +21,55 @@ void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-void	ft_if(t_env *env, t_trace trace)
+void	ft_if(t_env *env, t_point point)
 {	
-	trace.cumul = trace.dx / 2;
-	trace.i = 0;
-	while (++trace.i <= trace.dx)
+	point.cumul = point.dx / 2;
+	point.i = 0;
+	while (++point.i <= point.dx)
 	{
-		trace.x += trace.xinc;
-		trace.cumul += trace.dy;
-		if (trace.cumul >= trace.dx)
+		point.x += point.xinc;
+		point.cumul += point.dy;
+		if (point.cumul >= point.dx)
 		{
-			trace.cumul -= trace.dx;
-			trace.y += trace.yinc;
+			point.cumul -= point.dx;
+			point.y += point.yinc;
 		}
-		my_mlx_pixel_put(env, trace.x, trace.y, RED);
+		my_mlx_pixel_put(env, point.x, point.y, RED);
 	}
 }
 
-void	ft_else(t_env *env, t_trace trace)
+void	ft_else(t_env *env, t_point point)
 {
-	trace.cumul = trace.dy / 2;
-	trace.i = 0;
-	while (++trace.i <= trace.dy)
+	point.cumul = point.dy / 2;
+	point.i = 0;
+	while (++point.i <= point.dy)
 	{
-		trace.y += trace.yinc;
-		trace.cumul += trace.dx;
-		if (trace.cumul >= trace.dy)
+		point.y += point.yinc;
+		point.cumul += point.dx;
+		if (point.cumul >= point.dy)
 		{
-			trace.cumul -= trace.dy;
-			trace.x += trace.xinc;
+			point.cumul -= point.dy;
+			point.x += point.xinc;
 		}
-		my_mlx_pixel_put(env, trace.x, trace.y, RED);
+		my_mlx_pixel_put(env, point.x, point.y, RED);
 	}
 }
 
-void	ft_trace(t_env *env, t_point point, t_trace trace)
+void	ft_trace(t_env *env, t_point point)
 {
-	trace.x = point.xa;
-	trace.y = point.ya;
-	trace.dx = abs(point.xb - point.xa);
-	trace.dy = abs(point.yb - point.ya);
-	trace.xinc = -1;
+	point.x = point.xa;
+	point.y = point.ya;
+	point.dx = abs(point.xb - point.xa);
+	point.dy = abs(point.yb - point.ya);
+	point.xinc = -1;
 	if ((point.xb - point.xa) > 0)
-		trace.xinc = 1;
-	trace.yinc = -1;
+		point.xinc = 1;
+	point.yinc = -1;
 	if ((point.yb - point.ya) > 0)
-		trace.yinc = 1;
-	my_mlx_pixel_put(env, trace.x, trace.y, RED);
-	if (trace.dx > trace.dy)
-		ft_if(env, trace);
+		point.yinc = 1;
+	my_mlx_pixel_put(env, point.x, point.y, RED);
+	if (point.dx > point.dy)
+		ft_if(env, point);
 	else
-		ft_else(env, trace);
+		ft_else(env, point);
 }
