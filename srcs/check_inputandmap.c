@@ -27,27 +27,27 @@ int	ft_check_input(int argc, char **argv)
 int	ft_check_map(int fd)
 {
 	char	**dest;
-	t_check	check;
+	t_param	param;
 
-	check.line = 0;
-	check.tmp = get_next_line(fd);
-	while ((check.tmp != NULL && check.tmp[0]))
+	param.line = 0;
+	param.tmp = get_next_line(fd);
+	while ((param.tmp != NULL && param.tmp[0]))
 	{
-		dest = ft_split(check.tmp, ' ');
-		check.len_tmp = ptrstrlen(dest); 
-		if (check.line == 0)
-			check.len_ref = check.len_tmp; 
-		if (check.len_tmp != check.len_ref || ft_lineisnum(dest) == -1)
+		dest = ft_split(param.tmp, ' ');
+		param.len_tmp = ptrstrlen(dest); 
+		if (param.line == 0)
+			param.len_ref = param.len_tmp; 
+		if (param.len_tmp != param.len_ref || ft_lineisnum(dest) == -1)
 		{
-			ft_free(&check.tmp, &dest);
+			ft_free(&param.tmp, &dest);
 			return (MAP_ERROR);
 		}
-		ft_free(&check.tmp, &dest);
-		check.line++; 
-		check.tmp = get_next_line(fd); 
+		ft_free(&param.tmp, &dest);
+		param.line++; 
+		param.tmp = get_next_line(fd); 
 	}
-	ft_free(&check.tmp, NULL);
-	if (check.tmp == NULL && check.line != 0)
+	ft_free(&param.tmp, NULL);
+	if (param.tmp == NULL && param.line != 0)
 	{
 		close(fd);
 		return (0);

@@ -34,12 +34,14 @@ typedef struct s_env {
 	int		img_y;
 }				t_env;
 
-typedef struct s_check {
+typedef struct s_check_or_stock {
+	int		fd;
 	char	*tmp;
+	int		line;
+	int		i;
 	int		len_ref;
 	int		len_tmp;
-	int		line;
-}				t_check;
+}				t_param;
 
 typedef struct s_index {
 	int		i;

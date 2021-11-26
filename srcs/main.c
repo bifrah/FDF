@@ -27,11 +27,11 @@ int	main(int argc, char **argv)
 {
 	t_env	env;
 	t_dlist	*list;
-	int		fd;
+	t_param	param;
 
 	list = ft_dlistnew();
-	fd = ft_check_input(argc, argv);
-	if (ft_printerr(fd) < 0 || ft_printerr(ft_check_map(fd)) < 0)
+	param.fd = ft_check_input(argc, argv);
+	if (ft_printerr(param.fd) < 0 || ft_printerr(ft_check_map(param.fd)) < 0)
 		return (-1);
 	ft_setenv(&env);
 	ft_stock_input(argv, list);
