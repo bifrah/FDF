@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:53 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/18 03:55:18 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:52:26 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void	ft_stock_input(char **argv, t_dlist *list)
 		dest = ft_split(param.tmp, ' ');
 		ft_dlistaddt(&list);
 		list->p_tail->x = (int *)malloc(sizeof(int) * (ptrstrlen(dest)));
+		if (!(list->p_tail->x))
+			return (MALLOC_ERROR);
 		while (dest[++param.i])
-		{
 			list->p_tail->x[param.i] = ft_atoi(dest[param.i]);
-			list->p_tail->y = param.line;
-		}		
+		list->p_tail->y = param.line;
 		ft_free(&param.tmp, &dest);
 		param.line++;
 		param.tmp = get_next_line(param.fd);
