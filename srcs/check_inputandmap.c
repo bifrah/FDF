@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   check_inputandmap.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/22 18:47:25 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:34:27 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,9 @@ int	ft_check_map(int fd)
 		param.tmp = get_next_line(fd);
 	}
 	ft_free(&param.tmp, NULL);
+	close(fd);
 	if (param.tmp == NULL && param.line != 0)
-	{
-		close(fd);
 		return (0);
-	}
 	return (MAP_ERROR);
 }
 
