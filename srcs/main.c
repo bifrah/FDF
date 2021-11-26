@@ -6,11 +6,32 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 13:39:55 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 14:31:50 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void	ft_print_map(t_dlist *list)
+{
+	t_dnode *node;
+	int		i;
+
+	node = list->p_head;
+	while (node)
+	{
+		i = 0;
+		while (i < node->len_x)
+		{
+			printf("%d", node->x[i]);
+			if (i + 1 < node->len_x)
+				printf(" ");
+			i++;
+		}
+		printf("\n");
+		node = node->p_next;
+	}
+}
 
 int	ft_printerr(int errcode)
 {
@@ -31,10 +52,11 @@ int	main(int argc, char **argv)
 
 	list = ft_dlistnew();
 	param.fd = ft_check_input(argc, argv);
-	if (ft_printerr(param.fd) < 0 || ft_printerr(ft_check_map(param.fd)) < 0)
+	if (ft_printerr(param.fd) < 0 || ft_printerr(ft_check_map(param.fd)) < 0
+		|| ft_printerr(ft_stock_input(argv, list)) < 0)
 		return (-1);
+	ft_print_map(list);
 	ft_setenv(&env);
-	ft_stock_input(argv, list);
 	//ft_draw(&env);
 	mlx_hook(env.win_ptr, 2, (1L << 0), &key_hook, &env);
 	mlx_loop(env.mlx);

@@ -6,16 +6,16 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 16:59:48 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/06 15:35:24 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 14:12:17 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_dlistdel(t_dlist **p_list)
+int	ft_dlistdel(t_dlist **p_list, int errcode)
 {
-	t_dnode *p_temp;
-	t_dnode *p_del;
+	t_dnode	*p_temp;
+	t_dnode	*p_del;
 
 	if (*p_list != NULL)
 	{
@@ -24,9 +24,12 @@ void	ft_dlistdel(t_dlist **p_list)
 		{
 			p_del = p_temp;
 			p_temp = p_temp->p_next;
+			if (p_del->x)
+				free(p_del->x);
 			free(p_del);
 		}
 		free(*p_list);
 		*p_list = NULL;
 	}
+	return (errcode);
 }

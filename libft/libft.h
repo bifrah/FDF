@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 14:27:41 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/09 10:44:34 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 14:19:21 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct		s_dnode
 {
 	int				*x;
 	int				y;
+	int				len_x;
 	struct s_dnode	*p_next;
 	struct s_dnode	*p_prev;
 }					t_dnode;
@@ -93,6 +94,6 @@ int				ft_checkspace(int c);
 t_dnode				*ft_dlistaddh(t_dlist **p_list);
 t_dnode				*ft_dlistaddt(t_dlist **p_list);
 t_dlist				*ft_dlistnew(void);
-void				ft_dlistdel(t_dlist **p_list);
+int				ft_dlistdel(t_dlist **p_list, int errcode);
 
 #endif
