@@ -6,13 +6,13 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 13:19:53 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:37:16 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	ft_if(t_env *env, t_point point, t_trace trace)
+void	ft_if(t_env *env, t_trace trace)
 {	
 	trace.cumul = trace.dx / 2;
 	trace.i = 0;
@@ -29,7 +29,7 @@ void	ft_if(t_env *env, t_point point, t_trace trace)
 	}
 }
 
-void	ft_else(t_env *env, t_point point, t_trace trace)
+void	ft_else(t_env *env, t_trace trace)
 {
 	trace.cumul = trace.dy / 2;
 	trace.i = 0;
@@ -60,7 +60,7 @@ void	ft_trace(t_env *env, t_point point, t_trace trace)
 		trace.yinc = 1;
 	my_mlx_pixel_put(env, trace.x, trace.y, RED);
 	if (trace.dx > trace.dy)
-		ft_if(env, point, trace);
+		ft_if(env, trace);
 	else
-		ft_else(env, point, trace);
+		ft_else(env, trace);
 }

@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 13:36:20 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:36:48 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void	ft_free(char **tmp, char ***dest);
 int		ft_check_map(int fd);
 void    ft_stock_input(char **argv, t_dlist *list);
 void	ft_trace(t_env *env, t_point point, t_trace trace);
-void	ft_if(t_env *env, t_point point, t_trace trace);
-void	ft_else(t_env *env, t_point point, t_trace trace);
+void	ft_if(t_env *env, t_trace trace);
+void	ft_else(t_env *env, t_trace trace);
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00
