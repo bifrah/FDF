@@ -34,17 +34,17 @@ int	ft_check_map(int fd)
 	while ((param.tmp != NULL && param.tmp[0]))
 	{
 		dest = ft_split(param.tmp, ' ');
-		param.len_tmp = ptrstrlen(dest); 
+		param.len_tmp = ptrstrlen(dest);
 		if (param.line == 0)
-			param.len_ref = param.len_tmp; 
+			param.len_ref = param.len_tmp;
 		if (param.len_tmp != param.len_ref || ft_lineisnum(dest) == -1)
 		{
 			ft_free(&param.tmp, &dest);
 			return (MAP_ERROR);
 		}
 		ft_free(&param.tmp, &dest);
-		param.line++; 
-		param.tmp = get_next_line(fd); 
+		param.line++;
+		param.tmp = get_next_line(fd);
 	}
 	ft_free(&param.tmp, NULL);
 	if (param.tmp == NULL && param.line != 0)

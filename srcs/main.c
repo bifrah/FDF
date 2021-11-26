@@ -17,7 +17,7 @@ int	ft_printerr(int errcode)
 	if (errcode == INPUT_ERROR || errcode == NB_PARAM_ERROR)
 		ft_putstr_fd("Usage : ./fdf your_map.map\n", 2);
 	if (errcode == MAP_ERROR)
-		ft_putstr_fd("Map must have only int, space and \\n. Empty line don't work.\n All the lines must have the same size\n", 2);
+		ft_putstr_fd("Map must have only int, space and \\n.\nAll the lines must have the same size\n", 2);
 	if (errcode == MALLOC_ERROR)
 		ft_putstr_fd("Malloc error\n", 2);
 	return (errcode);

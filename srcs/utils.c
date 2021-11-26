@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/26 13:05:05 by bifrah            #+#    #+#             */
+/*   Updated: 2021/11/26 13:06:29 by bifrah           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/fdf.h"
 
 int	ft_lineisnum(char **dest)
@@ -41,12 +53,12 @@ int	ptrstrlen(char **dest)
 	return (j);
 }
 
-void ft_freetab(char ***dest)
+void	ft_freetab(char ***dest)
 {
-	int y; 
-	
+	int	y;
+
 	y = 0;
-	while(dest[0][y])
+	while (dest[0][y])
 	{
 		free(dest[0][y]);
 		y++;
@@ -55,13 +67,13 @@ void ft_freetab(char ***dest)
 	*dest = NULL;
 }
 
-void ft_free(char **tmp, char ***dest)
+void	ft_free(char **tmp, char ***dest)
 {
-	if(*tmp)
+	if (*tmp)
 	{
 		free(*tmp);
 		*tmp = NULL;
 	}
-	if(dest && *dest)
+	if (dest && *dest)
 		ft_freetab(dest);
 }

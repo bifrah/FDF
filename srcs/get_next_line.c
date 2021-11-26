@@ -100,7 +100,7 @@ char	*get_next_line(int fd)
 	static char		stat[BUFFER_SIZE];
 	char			*line;
 
-	if (read(fd, buff, 0) == -1 || BUFFER_SIZE < 1 )
+	if (read(fd, buff, 0) == -1 || BUFFER_SIZE < 1)
 		return (ft_strdup(""));
 	line = ft_strdup("");
 	if (stat[0])
