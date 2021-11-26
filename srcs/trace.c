@@ -6,11 +6,45 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/22 18:29:36 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/26 13:19:53 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void	ft_if(t_env *env, t_point point, t_trace trace)
+{	
+	trace.cumul = trace.dx / 2;
+	trace.i = 0;
+	while (++trace.i <= trace.dx)
+	{
+		trace.x += trace.xinc;
+		trace.cumul += trace.dy;
+		if (trace.cumul >= trace.dx)
+		{
+			trace.cumul -= trace.dx;
+			trace.y += trace.yinc;
+		}
+		my_mlx_pixel_put(env, trace.x, trace.y, RED);
+	}
+}
+
+void	ft_else(t_env *env, t_point point, t_trace trace)
+{
+	trace.cumul = trace.dy / 2;
+	trace.i = 0;
+	while (++trace.i <= trace.dy)
+	{
+		trace.y += trace.yinc;
+		trace.cumul += trace.dx;
+		if (trace.cumul >= trace.dy)
+		{
+			trace.cumul -= trace.dy;
+			trace.x += trace.xinc;
+		}
+		my_mlx_pixel_put(env, trace.x, trace.y, RED);
+	}
+}
 
 void	ft_trace(t_env *env, t_point point, t_trace trace)
 {
@@ -26,35 +60,7 @@ void	ft_trace(t_env *env, t_point point, t_trace trace)
 		trace.yinc = 1;
 	my_mlx_pixel_put(env, trace.x, trace.y, RED);
 	if (trace.dx > trace.dy)
-	{
-		trace.cumul = trace.dx / 2;
-		trace.i = 0;
-		while (++trace.i <= trace.dx)
-		{
-			trace.x += trace.xinc;
-			trace.cumul += trace.dy;
-			if (trace.cumul >= trace.dx)
-			{
-				trace.cumul -= trace.dx;
-				trace.y += trace.yinc;
-			}
-			my_mlx_pixel_put(env, trace.x, trace.y, RED);
-		}
-	}
+		ft_if(env, point, trace);
 	else
-	{
-		trace.cumul = trace.dy / 2;
-		trace.i = 0;
-		while (++trace.i <= trace.dy)
-		{
-			trace.y += trace.yinc;
-			trace.cumul += trace.dx;
-			if (trace.cumul >= trace.dy)
-			{
-				trace.cumul -= trace.dy;
-				trace.x += trace.xinc;
-			}
-			my_mlx_pixel_put(env, trace.x, trace.y, RED);
-		}
-	}
+		ft_else(env, point, trace);
 }
