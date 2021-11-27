@@ -6,41 +6,53 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/27 14:50:36 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/27 15:15:25 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	ft_draw(t_env *env, t_dlist *list, t_point point)
+void	ft_draw_trace(t_env *env, t_dlist *list, t_point point)
 {
-	int		first_img;
 	t_dnode	*node;
 
 	node = list->p_head;
+	while (node->y < list->length)
+	{
+		while (point.i < node->len_x)
+		{
+			point.xa = point.i;
+			point.ya = node->y;
+			point.za = node->x[point.i];
+			
+			point.xb = point.i + 1;
+			point.yb = node->y;
+			point.zb = node->x[point.i + 1];
+			ft_trace(env, point);
+
+			point.xb = point.i;
+			point.yb = node->p_next->y;
+			point.zb = node->p_next->x[point.i];
+			ft_trace(env, point);
+
+			point.i++;
+
+		}
+		node->p_next;
+	}
+}
+
+void	ft_draw(t_env *env, t_dlist *list, t_point point)
+{
+	int		first_img;
+
 	first_img = 0;
 	if (first_img == 1)
 		mlx_destroy_image(env->mlx, env->img_ptr);
 	env->img_ptr = mlx_new_image(env->mlx, 1920, 1080);
 	env->img_data = mlx_get_data_addr(env->img_ptr, &env->bits_per_pixel,
 			&env->line_length, &env->endian);
-	//A remplir
-	
-	while (point.i < list->length)
-	{
-		point.xa = point.i;
-		point.ya = node->y;
-		point.za = node->x[point.i];
-		
-		point.xb = point.i;
-		point.yb = node->p_next->y;
-		point.zb = node->x[point.i];
-
-		ft_trace(env, point);
-
-	}
-	
-	//Fin remplissage
+	ft_draw_trace(env, list, point);
 	mlx_put_image_to_window(env->mlx, env->win_ptr, env->img_ptr, 0, 0);
 	if (first_img == 1)
 		first_img = 0;

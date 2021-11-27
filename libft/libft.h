@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 14:27:41 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/27 14:40:51 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/27 15:11:21 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_dnode
 {
 	int				*x;
-	int				y;
+	unsigned int	y;
 	int				len_x;
 	struct s_dnode	*p_next;
 	struct s_dnode	*p_prev;

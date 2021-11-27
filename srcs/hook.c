@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 18:01:39 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/27 15:09:59 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@ int	key_hook(int keycode, t_env *env, t_dlist *list, t_point point)
 		env->img_y += 1;
 	if (keycode == UP && env->img_y > 0)
 		env->img_y -= 1;
-	ft_draw(env, &list, point);
+	ft_draw(env, list, point);
 	return (0);
 }
