@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/27 15:15:25 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/27 15:17:27 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_draw_trace(t_env *env, t_dlist *list, t_point point)
 			point.i++;
 
 		}
-		node->p_next;
+		node = node->p_next;
 	}
 }
 
