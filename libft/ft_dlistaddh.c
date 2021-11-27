@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 16:56:18 by mtordjma          #+#    #+#             */
-/*   Updated: 2021/11/06 14:45:07 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/27 14:42:20 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 t_dnode	*ft_dlistaddh(t_dlist **p_list)
 {
-	t_dnode *p_newnode;
+	t_dnode	*p_newnode;
 
 	if ((*p_list) == NULL)
 		return (NULL);
-	if (!(p_newnode = (t_dnode *)malloc(sizeof(*p_newnode))))
+	p_newnode = (t_dnode *)malloc(sizeof(*p_newnode));
+	if (!p_newnode)
 		return (NULL);
 	p_newnode->p_prev = NULL;
 	if ((*p_list)->p_tail == NULL)

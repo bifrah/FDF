@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 14:27:41 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/27 14:38:35 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/27 14:40:51 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 
-typedef struct		s_dnode
+typedef struct s_dnode
 {
 	int				*x;
 	int				y;
@@ -24,13 +24,12 @@ typedef struct		s_dnode
 	struct s_dnode	*p_prev;
 }					t_dnode;
 
-typedef struct		s_dlist
+typedef struct s_dlist
 {
 	unsigned int	length;
-	t_dnode	*p_head;
-	t_dnode	*p_tail;
+	t_dnode			*p_head;
+	t_dnode			*p_tail;
 }					t_dlist;
-
 
 void			*ft_memset(void *s, int c, unsigned int n);
 void			*ft_bzero(void *s, unsigned int n);
@@ -69,9 +68,9 @@ void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 
 int				ft_checkspace(int c);
-t_dnode				*ft_dlistaddh(t_dlist **p_list);
-t_dnode				*ft_dlistaddt(t_dlist **p_list);
-t_dlist				*ft_dlistnew(void);
+t_dnode			*ft_dlistaddh(t_dlist **p_list);
+t_dnode			*ft_dlistaddt(t_dlist **p_list);
+t_dlist			*ft_dlistnew(void);
 int				ft_dlistdel(t_dlist **p_list, int errcode);
 
 #endif
