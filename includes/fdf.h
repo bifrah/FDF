@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/27 13:08:15 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/27 14:46:28 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ typedef struct s_point {
 	int		cumul;
 	int		x;
 	int		y;
-	
 	int		a;
 	int		b;
 	int		xa;
@@ -74,7 +73,7 @@ int		ptrstrlen(char **dest);
 void	ft_freetab(char ***dest);
 void	ft_free(char **tmp, char ***dest);
 int		ft_check_map(int fd);
-int	    ft_stock_input(char **argv, t_dlist *list);
+int		ft_stock_input(char **argv, t_dlist *list);
 void	ft_trace(t_env *env, t_point point);
 void	ft_if(t_env *env, t_point point);
 void	ft_else(t_env *env, t_point point);
