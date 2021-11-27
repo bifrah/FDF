@@ -6,21 +6,18 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/27 14:38:32 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/27 14:50:36 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-
-
-
-
 void	ft_draw(t_env *env, t_dlist *list, t_point point)
 {
-	int	first_img;
-	t_dnode *node = list->p_head;
+	int		first_img;
+	t_dnode	*node;
 
+	node = list->p_head;
 	first_img = 0;
 	if (first_img == 1)
 		mlx_destroy_image(env->mlx, env->img_ptr);
