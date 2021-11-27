@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 18:06:04 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/27 13:08:15 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,15 @@ typedef struct s_point {
 	int		cumul;
 	int		x;
 	int		y;
+	
+	int		a;
+	int		b;
 	int		xa;
 	int		ya;
 	int		za;
 	int		xb;
 	int		yb;
-	int		zb;	
+	int		zb;
 }				t_point;
 
 int		key_hook(int keycode, t_env *env, t_dlist *list, t_point point);
