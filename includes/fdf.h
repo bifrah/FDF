@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/27 14:46:28 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/30 14:42:35 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,20 +63,20 @@ typedef struct s_point {
 	int		zb;
 }				t_point;
 
-int		key_hook(int keycode, t_env *env, t_dlist *list, t_point point);
-void	ft_draw(t_env *env, t_dlist *list, t_point point);
-void	my_mlx_pixel_put(t_env *env, int x, int y, int color);
-void	ft_setenv(t_env *env);
-int		ft_check_input(int argc, char **argv);
-int		ft_lineisnum(char **dest);
-int		ptrstrlen(char **dest);
-void	ft_freetab(char ***dest);
-void	ft_free(char **tmp, char ***dest);
-int		ft_check_map(int fd);
-int		ft_stock_input(char **argv, t_dlist *list);
-void	ft_trace(t_env *env, t_point point);
-void	ft_if(t_env *env, t_point point);
-void	ft_else(t_env *env, t_point point);
+int			key_hook(int keycode, t_env *env, t_dlist *list, t_point point);
+void		ft_draw(t_env *env, t_dlist *list, t_point point);
+void		my_mlx_pixel_put(t_env *env, int x, int y, int color);
+void		ft_setenv(t_env *env);
+int			ft_check_input(int argc, char **argv);
+int			ft_lineisnum(char **dest);
+int			ptrstrlen(char **dest);
+void		ft_freetab(char ***dest);
+void		ft_free(char **tmp, char ***dest);
+int			ft_check_map(int fd);
+int			ft_stock_input(char **argv, t_dlist *list);
+void		ft_trace(t_env *env, t_point point);
+static void	ft_if(t_env *env, t_point point);
+static void	ft_else(t_env *env, t_point point);
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00
