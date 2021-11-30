@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/27 15:17:27 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/30 14:14:15 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,21 @@ void	ft_draw_trace(t_env *env, t_dlist *list, t_point point)
 			point.xa = point.i;
 			point.ya = node->y;
 			point.za = node->x[point.i];
-			
-			point.xb = point.i + 1;
-			point.yb = node->y;
-			point.zb = node->x[point.i + 1];
-			ft_trace(env, point);
-
-			point.xb = point.i;
-			point.yb = node->p_next->y;
-			point.zb = node->p_next->x[point.i];
-			ft_trace(env, point);
-
+			if (point.i + 1 < node->len_x)
+			{
+				point.xb = point.i + 1;
+				point.yb = node->y;
+				point.zb = node->x[point.i + 1];
+				ft_trace(env, point);
+			}
+			if (node->p_next->y < list->length)
+			{
+				point.xb = point.i;
+				point.yb = node->p_next->y;
+				point.zb = node->p_next->x[point.i];
+				ft_trace(env, point);
+			}
 			point.i++;
-
 		}
 		node = node->p_next;
 	}
