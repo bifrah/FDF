@@ -6,13 +6,13 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/30 16:58:24 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/30 17:00:02 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
+static void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
 {
 	char	*dst;
 
@@ -55,23 +55,23 @@ static void	ft_else(t_env *env, t_point point)
 	}
 }
 
-// static void	iso(int *x, int *y, int z)
-// {
-// 	int	previous_x;
-// 	int	previous_y;
+static void	iso(int *x, int *y, int z)
+{
+	int	previous_x;
+	int	previous_y;
 
-// 	previous_x = *x;
-// 	previous_y = *y;
-// 	*x = (previous_x - previous_y) * cos(0.523599);
-// 	*y = -z + (previous_x + previous_y) * sin(0.523599);
-// }
+	previous_x = *x;
+	previous_y = *y;
+	*x = (previous_x - previous_y) * cos(0.523599);
+	*y = -z + (previous_x + previous_y) * sin(0.523599);
+}
 
 void	ft_trace(t_env *env, t_point point)
 {
-	// if (point.za != 0)
-	// 	iso(&point.xa, &point.ya, point.za);
-	// if (point.zb != 0)
-	// 	iso(&point.xb, &point.yb, point.zb);
+	if (point.za != 0)
+		iso(&point.xa, &point.ya, point.za);
+	if (point.zb != 0)
+		iso(&point.xb, &point.yb, point.zb);
 	point.x = point.xa;
 	point.y = point.ya;
 	point.dx = abs(point.xb - point.xa);
