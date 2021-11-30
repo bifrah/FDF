@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/30 14:14:15 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/30 15:57:53 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,34 @@ void	ft_draw_trace(t_env *env, t_dlist *list, t_point point)
 	t_dnode	*node;
 
 	node = list->p_head;
-	while (node->y < list->length)
+	point.ab = 0;
+	point.or = 0;
+	while (point.or < list->length)
 	{
-		while (point.i < node->len_x)
+		while (point.ab < node->len_x)
 		{
-			point.xa = point.i;
-			point.ya = node->y;
-			point.za = node->x[point.i];
-			if (point.i + 1 < node->len_x)
+			point.xa = point.ab;
+			point.ya = point.or;
+			point.za = node->x[point.ab];
+			if (point.ab + 1 < node->len_x)
 			{
-				point.xb = point.i + 1;
-				point.yb = node->y;
-				point.zb = node->x[point.i + 1];
+				point.xb = point.ab + 1;
+				point.yb = point.or;
+				point.zb = node->x[point.ab + 1];
 				ft_trace(env, point);
 			}
-			if (node->p_next->y < list->length)
+			if (point.or + 1 < list->length)
 			{
-				point.xb = point.i;
-				point.yb = node->p_next->y;
-				point.zb = node->p_next->x[point.i];
+				point.xb = point.ab;
+				point.yb = point.or + 1;
+				point.zb = node->p_next->x[point.ab];
 				ft_trace(env, point);
 			}
-			point.i++;
+			point.ab++;
 		}
 		node = node->p_next;
+		point.ab = 0;
+		point.or++;
 	}
 }
 

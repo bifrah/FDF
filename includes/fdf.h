@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/30 15:04:06 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/30 15:18:46 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ typedef struct s_point {
 	int		cumul;
 	int		x;
 	int		y;
-	int		a;
-	int		b;
+	unsigned int		ab;
+	unsigned int		or;
 	int		xa;
 	int		ya;
 	int		za;
