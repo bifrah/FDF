@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/30 17:00:08 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/30 18:34:44 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,22 @@ typedef struct s_param {
 }				t_param;
 
 typedef struct s_point {
-	int		dx;
-	int		dy;
-	int		i;
-	int		xinc;
-	int		yinc;
-	int		cumul;
-	int		x;
-	int		y;
-	unsigned int		ab;
-	unsigned int		or;
-	int		xa;
-	int		ya;
-	int		za;
-	int		xb;
-	int		yb;
-	int		zb;
+	int				dx;
+	int				dy;
+	int				i;
+	int				xinc;
+	int				yinc;
+	int				cumul;
+	int				x;
+	int				y;
+	unsigned int	ab;
+	unsigned int	or;
+	int				xa;
+	int				ya;
+	int				za;
+	int				xb;
+	int				yb;
+	int				zb;
 }				t_point;
 
 int			key_hook(int keycode, t_env *env, t_dlist *list, t_point point);

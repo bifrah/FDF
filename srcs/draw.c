@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/30 15:57:53 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/11/30 18:53:12 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ void	ft_draw_trace(t_env *env, t_dlist *list, t_point point)
 	t_dnode	*node;
 
 	node = list->p_head;
-	point.ab = 0;
-	point.or = 0;
-	while (point.or < list->length)
+	point.ab = -1;
+	point.or = -1;
+	while (++point.or < list->length)
 	{
-		while (point.ab < node->len_x)
+		while (++point.ab < node->len_x)
 		{
 			point.xa = point.ab;
 			point.ya = point.or;
@@ -40,11 +40,9 @@ void	ft_draw_trace(t_env *env, t_dlist *list, t_point point)
 				point.zb = node->p_next->x[point.ab];
 				ft_trace(env, point);
 			}
-			point.ab++;
 		}
 		node = node->p_next;
 		point.ab = 0;
-		point.or++;
 	}
 }
 
@@ -63,27 +61,3 @@ void	ft_draw(t_env *env, t_dlist *list, t_point point)
 	if (first_img == 1)
 		first_img = 0;
 }
-
-/*
-tracer(t_point a, t_point b);
-
-t_dnode *node;
-t_point a;
-t_point b;
-
-int x = 0;
-int y = 0;
-
-a = {x, y, node.x[x]}
-b = {x + 1, y,  node.x[x + 1]}
-
-tracer(a, b);
-a = {x, y, node.x[x]}
-b = {x, y + 1,  node->p_next.x[x]}
-tracer(a, b);
-x++;
-
-4 6 0 0
-1 2 3 4
-
-*/
