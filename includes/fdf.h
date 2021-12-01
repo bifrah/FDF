@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/30 18:34:44 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/01 14:12:36 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_env {
 	int		endian;
 	int		img_x;
 	int		img_y;
+	int		havetodestroy;
 }				t_env;
 
 typedef struct s_param {
