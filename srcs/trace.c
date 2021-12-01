@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/01 16:40:53 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/01 17:35:09 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ static void	iso(int *x, int *y, int z)
 
 	previous_x = *x;
 	previous_y = *y;
-	*x = ((previous_x - previous_y) * cos(0.523599)) * 30;
-	*y = (-z + (previous_x + previous_y) * sin(0.523599)) * 30;
+	*x = ((previous_x - previous_y) * cos(0.523599)) * 10;
+	*y = (-z + (previous_x + previous_y) * sin(0.523599)) * 10;
 }
 
 void	ft_trace(t_env *env, t_point point)
