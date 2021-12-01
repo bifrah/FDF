@@ -6,16 +6,18 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/01 17:35:09 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/01 20:12:41 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-static void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
+void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
 {
 	char	*dst;
 
+	x += 960;
+	y += 540;
 	if (x > W_WIDTH || y > W_HEIGHT)
 		return ;
 	dst = env->img_data + (y * env->line_length
@@ -36,7 +38,7 @@ static void	ft_if(t_env *env, t_point point)
 			point.cumul -= point.dx;
 			point.y += point.yinc;
 		}
-		my_mlx_pixel_put(env, point.x + 960, point.y + 540, RED);
+		my_mlx_pixel_put(env, point.x, point.y, RED);
 	}
 }
 
@@ -53,19 +55,19 @@ static void	ft_else(t_env *env, t_point point)
 			point.cumul -= point.dy;
 			point.x += point.xinc;
 		}
-		my_mlx_pixel_put(env, point.x + 960, point.y + 540, RED);
+		my_mlx_pixel_put(env, point.x, point.y, RED);
 	}
 }
 
-static void	iso(int *x, int *y, int z)
+void	iso(int *x, int *y, int z)
 {
 	int	previous_x;
 	int	previous_y;
 
 	previous_x = *x;
 	previous_y = *y;
-	*x = ((previous_x - previous_y) * cos(0.523599)) * 10;
-	*y = (-z + (previous_x + previous_y) * sin(0.523599)) * 10;
+	*x = ((previous_x - previous_y) * cos(0.523599)) * 20;
+	*y = (-z + (previous_x + previous_y) * sin(0.523599)) * 20;
 }
 
 void	ft_trace(t_env *env, t_point point)
@@ -82,7 +84,7 @@ void	ft_trace(t_env *env, t_point point)
 	point.yinc = -1;
 	if ((point.yb - point.ya) > 0)
 		point.yinc = 1;
-	my_mlx_pixel_put(env, point.x + 960, point.y + 540, RED);
+	my_mlx_pixel_put(env, point.x, point.y, RED);
 	if (point.dx > point.dy)
 		ft_if(env, point);
 	else

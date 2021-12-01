@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/01 17:23:59 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/01 20:13:08 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ void		ft_free(char **tmp, char ***dest);
 int			ft_check_map(int fd);
 int			ft_stock_input(char **argv, t_dlist *list);
 void		ft_trace(t_env *env, t_point point);
+void		iso(int *x, int *y, int z);
+void		my_mlx_pixel_put(t_env *env, int x, int y, int color);
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00
