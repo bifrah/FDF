@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/01 16:34:59 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/01 17:23:59 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ typedef struct s_point {
 	int				xb;
 	int				yb;
 	int				zb;
+	unsigned int	zoom;
 }				t_point;
 
 int			key_hook(int keycode, t_env *env, t_dlist *list, t_point point);
@@ -75,10 +76,6 @@ void		ft_free(char **tmp, char ***dest);
 int			ft_check_map(int fd);
 int			ft_stock_input(char **argv, t_dlist *list);
 void		ft_trace(t_env *env, t_point point);
-
-# define W_WIDTH	1920
-# define W_HEIGHT	1080
-
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00
@@ -107,5 +104,8 @@ void		ft_trace(t_env *env, t_point point);
 # define INPUT_ERROR	-3
 # define MAP_ERROR		-4
 # define MALLOC_ERROR	-5
+
+# define W_WIDTH	1920
+# define W_HEIGHT	1080
 
 #endif
