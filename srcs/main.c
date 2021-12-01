@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/30 15:03:47 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/01 16:26:33 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_print_map(t_dlist *list)
 {
-	t_dnode	*node;
-	int		i;
+	t_dnode			*node;
+	unsigned int	i;
 
 	node = list->p_head;
 	while (node)

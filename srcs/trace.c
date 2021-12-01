@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/01 15:54:18 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/01 16:40:53 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ static void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
 {
 	char	*dst;
 
+	if (x > W_WIDTH || y > W_HEIGHT)
+		return ;
 	dst = env->img_data + (y * env->line_length
 			+ x * (env->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
@@ -62,8 +64,8 @@ static void	iso(int *x, int *y, int z)
 
 	previous_x = *x;
 	previous_y = *y;
-	*x = (previous_x - previous_y) * cos(0.523599);
-	*y = -z + (previous_x + previous_y) * sin(0.523599);
+	*x = ((previous_x - previous_y) * cos(0.523599)) * 30;
+	*y = (-z + (previous_x + previous_y) * sin(0.523599)) * 30;
 }
 
 void	ft_trace(t_env *env, t_point point)
