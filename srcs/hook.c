@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/02 16:20:39 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/02 22:33:20 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	key_hook(int keycode, t_env *env, t_dlist *list, t_point point)
 		env->img_y = W_HEIGHT / 2;
 	}
 	else if (keycode == ZOOM_IN)
-		env->zoom += 1;
+		env->zoom *= 1.25;
 	else if (keycode == ZOOM_OUT)
-		env->zoom -= 1;
+		env->zoom /= 1.25;
 	else if (keycode == RIGHT && env->img_x < W_WIDTH)
 		env->img_x += 10;
 	else if (keycode == LEFT && env->img_x > 0)
