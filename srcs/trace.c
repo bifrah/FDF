@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/02 16:21:44 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/02 22:50:04 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,7 @@ void	iso(int *x, int *y, int z, t_env *env)
 {
 	int				previous_x;
 	int				previous_y;
-	//unsigned int	zoom;
 
-	//zoom = 1;
 	previous_x = *x;
 	previous_y = *y;
 	*x = ((previous_x - previous_y) * cos(0.523599)) * env->zoom;
