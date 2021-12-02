@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/01 20:34:06 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/02 16:20:21 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,17 @@
 # include "./get_next_line.h"
 
 typedef struct s_env {
-	void	*mlx;
-	void	*win_ptr;
-	void	*img_data;
-	char	*img_ptr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		img_x;
-	int		img_y;
-	int		havetodestroy;
+	void			*mlx;
+	void			*win_ptr;
+	void			*img_data;
+	char			*img_ptr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+	int				img_x;
+	int				img_y;
+	int				havetodestroy;
+	unsigned int	zoom;
 }				t_env;
 
 typedef struct s_param {
@@ -62,7 +63,6 @@ typedef struct s_point {
 	int				xb;
 	int				yb;
 	int				zb;
-	unsigned int	zoom;
 }				t_point;
 
 int			key_hook(int keycode, t_env *env, t_dlist *list, t_point point);
@@ -76,7 +76,7 @@ void		ft_free(char **tmp, char ***dest);
 int			ft_check_map(int fd);
 int			ft_stock_input(char **argv, t_dlist *list);
 void		ft_trace(t_env *env, t_point point);
-void		iso(int *x, int *y, int z);
+void		iso(int *x, int *y, int z, t_env *env);
 void		my_mlx_pixel_put(t_env *env, int x, int y, int color);
 
 # define RED		0x00FF0000

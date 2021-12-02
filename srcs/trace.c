@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/01 20:36:38 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/02 16:21:44 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,22 +59,23 @@ static void	ft_else(t_env *env, t_point point)
 	}
 }
 
-void	iso(int *x, int *y, int z)
+void	iso(int *x, int *y, int z, t_env *env)
 {
-	int	previous_x;
-	int	previous_y;
+	int				previous_x;
+	int				previous_y;
+	//unsigned int	zoom;
 
+	//zoom = 1;
 	previous_x = *x;
 	previous_y = *y;
-	*x = ((previous_x - previous_y) * cos(0.523599));
-	*y = (-z + (previous_x + previous_y) * sin(0.523599));
+	*x = ((previous_x - previous_y) * cos(0.523599)) * env->zoom;
+	*y = (-z + (previous_x + previous_y) * sin(0.523599)) * env->zoom;
 }
 
 void	ft_trace(t_env *env, t_point point)
 {
-
-	iso(&point.xa, &point.ya, point.za);
-	iso(&point.xb, &point.yb, point.zb);
+	iso(&point.xa, &point.ya, point.za, env);
+	iso(&point.xb, &point.yb, point.zb, env);
 	point.x = point.xa;
 	point.y = point.ya;
 	point.dx = abs(point.xb - point.xa);
