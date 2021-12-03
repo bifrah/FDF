@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/02 22:50:04 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/03 14:47:11 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,37 +25,37 @@ void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-static void	ft_if(t_env *env, t_point point)
+static void	ft_if(t_env *env, t_point *point)
 {	
-	point.cumul = point.dx / 2;
-	point.i = 0;
-	while (++point.i <= point.dx)
+	point->cumul = point->dx / 2;
+	point->i = 0;
+	while (++point->i <= point->dx)
 	{
-		point.x += point.xinc;
-		point.cumul += point.dy;
-		if (point.cumul >= point.dx)
+		point->x += point->xinc;
+		point->cumul += point->dy;
+		if (point->cumul >= point->dx)
 		{
-			point.cumul -= point.dx;
-			point.y += point.yinc;
+			point->cumul -= point->dx;
+			point->y += point->yinc;
 		}
-		my_mlx_pixel_put(env, point.x, point.y, RED);
+		my_mlx_pixel_put(env, point->x, point->y, RED);
 	}
 }
 
-static void	ft_else(t_env *env, t_point point)
+static void	ft_else(t_env *env, t_point *point)
 {
-	point.cumul = point.dy / 2;
-	point.i = 0;
-	while (++point.i <= point.dy)
+	point->cumul = point->dy / 2;
+	point->i = 0;
+	while (++point->i <= point->dy)
 	{
-		point.y += point.yinc;
-		point.cumul += point.dx;
-		if (point.cumul >= point.dy)
+		point->y += point->yinc;
+		point->cumul += point->dx;
+		if (point->cumul >= point->dy)
 		{
-			point.cumul -= point.dy;
-			point.x += point.xinc;
+			point->cumul -= point->dy;
+			point->x += point->xinc;
 		}
-		my_mlx_pixel_put(env, point.x, point.y, RED);
+		my_mlx_pixel_put(env, point->x, point->y, RED);
 	}
 }
 
@@ -72,8 +72,8 @@ void	iso(int *x, int *y, int z, t_env *env)
 
 void	ft_trace(t_env *env, t_point point)
 {
-	iso(&point.xa, &point.ya, point.za, env);
-	iso(&point.xb, &point.yb, point.zb, env);
+	iso(&(point.xa), &(point.ya), point.za, env);
+	iso(&(point.xb), &(point.yb), point.zb, env);
 	point.x = point.xa;
 	point.y = point.ya;
 	point.dx = abs(point.xb - point.xa);
@@ -86,7 +86,7 @@ void	ft_trace(t_env *env, t_point point)
 		point.yinc = 1;
 	my_mlx_pixel_put(env, point.x, point.y, RED);
 	if (point.dx > point.dy)
-		ft_if(env, point);
+		ft_if(env, &point);
 	else
-		ft_else(env, point);
+		ft_else(env, &point);
 }
