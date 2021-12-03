@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/02 16:19:22 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/03 01:09:46 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	ft_printerr(int errcode)
 	if (errcode == INPUT_ERROR || errcode == NB_PARAM_ERROR)
 		ft_putstr_fd("Usage : ./fdf your_map.map\n", 2);
 	if (errcode == MAP_ERROR)
-		ft_putstr_fd("Map must have only int, space and \\n at the end only.\nAll the lines must have the same size\n", 2);
+		ft_putstr_fd("Map must have only int, space and \\n\
+		 at the end only.\nAll the lines must have the same size\n", 2);
 	if (errcode == MALLOC_ERROR)
 		ft_putstr_fd("Malloc error\n", 2);
 	return (errcode);
@@ -59,6 +60,6 @@ int	main(int argc, char **argv)
 	ft_print_map(list);
 	ft_setenv(&env);
 	ft_draw(&env, list, point);
-	mlx_hook(env.win_ptr, 2, (1L << 0), &key_hook, &env);
+	//mlx_hook(env.win_ptr, 2, (1L << 0), &key_hook, &env);
 	mlx_loop(env.mlx);
 }
