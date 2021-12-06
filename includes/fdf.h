@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 21:18:20 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 21:21:20 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void		ft_setpoint(t_point *point);
 # define KEY_G		103
 # define KEY_B		98
 # define KEY_M		109
-# define KEY_C		00
+# define KEY_C		99
 
 # define LEFT	65361
 # define UP		65362
