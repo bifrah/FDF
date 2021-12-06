@@ -34,7 +34,7 @@ GRN= \033[32;1m
 YEL= \033[33;1m
 
 .PHONY: all clean fclean re
-all: $(NAME)
+all: logo $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "$(RED)[fdf] : $(DEF)Compilation..."
@@ -59,5 +59,16 @@ fclean: clean
 	@make -C mlx_linux clean
 	@rm -rf $(NAME)
 	@echo "$(RED)[fdf] : $(DEF)Full Cleaning               $(GRN)[OK]$(DEF)"
+
+logo:
+	@echo ""
+	@echo "\033[38;2;255;255;255m:::::::::: :::::::::  :::::::::: "
+	@echo "\033[38;2;255;210;210m:+:        :+:    :+: :+:        "
+	@echo "\033[38;2;255;168;168m+:+        +:+    +:+ +:+        "
+	@echo "\033[38;2;255;126;126m:#::+::#   +#+    +:+ :#::+::#   "
+	@echo   "\033[38;2;255;84;84m+#+        +#+    +#+ +#+        "
+	@echo   "\033[38;2;255;42;42m#+#        #+#    #+# #+#        "
+	@echo     "\033[38;2;255;0;0m###        #########  ###        "
+	@echo "\033[0m"
 
 re: fclean all
