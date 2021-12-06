@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/03 15:42:18 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 19:14:17 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,6 @@
 # include "../mlx_linux/mlx_int.h"
 # include "../libft/libft.h"
 # include "./get_next_line.h"
-
-typedef struct s_env {
-	void	*mlx;
-	void	*win_ptr;
-	void	*img_data;
-	char	*img_ptr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-	int		img_x;
-	int		img_y;
-	float	zoom;
-}				t_env;
 
 typedef struct s_param {
 	int		fd;
@@ -64,9 +51,26 @@ typedef struct s_point {
 	int				zb;
 }				t_point;
 
-int			key_hook(int keycode, t_env *env, t_dlist *list, t_point point);
-void		ft_draw(t_env *env, t_dlist *list, t_point point);
-void		ft_setenv(t_env *env);
+typedef struct s_env {
+	void	*mlx;
+	void	*win_ptr;
+	void	*img_data;
+	char	*img_ptr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	long int		img_x;
+	long int		img_y;
+	float	zoom;
+	t_dlist	*list;
+	t_point	point;
+	int		is_iso;
+	unsigned int		list_size;
+}				t_env;
+
+int			key_hook(int keycode, t_env *env);
+void		ft_draw(t_env *env, t_dnode **node, t_point point);
+void		ft_setenv(t_env *env, t_dlist *list, t_point point);
 int			ft_check_input(int argc, char **argv);
 int			ft_lineisnum(char **dest);
 int			ptrstrlen(char **dest);
@@ -77,6 +81,7 @@ int			ft_stock_input(char **argv, t_dlist *list);
 void		ft_trace(t_env *env, t_point point);
 void		iso(int *x, int *y, int z, t_env **env);
 void		my_mlx_pixel_put(t_env *env, int x, int y, int color);
+void		ft_print_map(t_dnode *node);
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00
@@ -98,7 +103,8 @@ void		my_mlx_pixel_put(t_env *env, int x, int y, int color);
 # define NUMPAD_4 65430
 # define NUMPAD_5 65437
 
-# define BACKSPACE	65288
+# define KEY_P		112
+# define BACKSPACE	32
 # define ESC		65307
 
 # define NB_PARAM_ERROR	-2

@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 16:26:39 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 19:02:49 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	my_mlx_pixel_put(t_env *env, int x, int y, int color)
 {
 	char	*dst;
 
-	x += W_WIDTH / 2;
-	y += W_HEIGHT / 2;
+	x += env->img_x;
+	y += env->img_y;
 	if (x > W_WIDTH || y > W_HEIGHT || x < 0 || y < 0)
 		return ;
 	dst = env->img_data + (y * env->line_length
@@ -59,21 +59,26 @@ static void	ft_else(t_env *env, t_point point)
 	}
 }
 
-void	iso(int *x, int *y, int z, t_env **env)
+void	proj(int *x, int *y, int z, t_env **env)
 {
 	int				previous_x;
 	int				previous_y;
+	float				proj;
 
+	if ((*env)->is_iso == 1)
+		proj = 0.523599;
+	else
+		proj = 45;
 	previous_x = *x;
 	previous_y = *y;
-	*x = ((previous_x - previous_y) * cos(0.523599)) * (*env)->zoom;
-	*y = (-z + (previous_x + previous_y) * sin(0.523599)) * (*env)->zoom;
+	*x = ((previous_x - previous_y) * cos(proj)) * (*env)->zoom;
+	*y = (-z + (previous_x + previous_y) * sin(proj)) * (*env)->zoom;
 }
 
 void	ft_trace(t_env *env, t_point point)
 {
-	iso(&(point.xa), &(point.ya), point.za, &env);
-	iso(&(point.xb), &(point.yb), point.zb, &env);
+	proj(&(point.xa), &(point.ya), point.za, &env);
+	proj(&(point.xb), &(point.yb), point.zb, &env);
 	point.x = point.xa;
 	point.y = point.ya;
 	point.dx = abs(point.xb - point.xa);
