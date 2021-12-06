@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 19:14:30 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 21:09:37 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,18 @@ int	key_hook(int keycode, t_env *env)
 		env->img_y -= 5;
 	else if (keycode == KEY_P)
 		env->is_iso = (env->is_iso + 1) % 2;
+	else if ( keycode == KEY_W)
+		env->point.color = WHITE;
+	else if ( keycode == KEY_R)
+		env->point.color = RED;
+	else if ( keycode == KEY_G)
+		env->point.color = GREEN;
+	else if ( keycode == KEY_B)
+		env->point.color = BLUE;
+	else if ( keycode == KEY_M)
+		env->point.color = MAGENTA;
+	else if ( keycode == KEY_C)
+		env->point.color = CYAN;
 	ft_draw(env, &(env->list->p_head), env->point);
 	return (0);
 }

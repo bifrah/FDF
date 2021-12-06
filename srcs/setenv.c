@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:48:00 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 19:36:49 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 21:20:05 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	ft_setenv(t_env *env, t_dlist *list, t_point point)
 	env->win_ptr = mlx_new_window(env->mlx, W_WIDTH, W_HEIGHT, "Hello world !");
 	env->list = list;
 	env->point = point;
+	env->point.color = WHITE;
 	env->is_iso = 1;
 }

@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 19:34:55 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 21:15:48 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	ft_if(t_env *env, t_point point)
 			point.cumul -= point.dx;
 			point.y += point.yinc;
 		}
-		my_mlx_pixel_put(env, point.x, point.y, RED);
+		my_mlx_pixel_put(env, point.x, point.y, env->point.color);
 	}
 }
 
@@ -55,7 +55,7 @@ static void	ft_else(t_env *env, t_point point)
 			point.cumul -= point.dy;
 			point.x += point.xinc;
 		}
-		my_mlx_pixel_put(env, point.x, point.y, RED);
+		my_mlx_pixel_put(env, point.x, point.y, env->point.color);
 	}
 }
 
@@ -89,7 +89,7 @@ void	ft_trace(t_env *env, t_point point)
 	point.yinc = -1;
 	if ((point.yb - point.ya) > 0)
 		point.yinc = 1;
-	my_mlx_pixel_put(env, point.x, point.y, RED);
+	my_mlx_pixel_put(env, point.x, point.y, env->point.color);
 	if (point.dx > point.dy)
 		ft_if(env, point);
 	else
