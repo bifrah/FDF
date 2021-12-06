@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 21:28:57 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 21:32:39 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ int	key_hook(int keycode, t_env *env)
 		env->zoom /= 1.25;
 	else if (keycode == RIGHT && env->img_x < W_WIDTH - 5)
 		env->img_x += 5;
-	else if (keycode == LEFT && env->img_x > 5)
+	else if (keycode == LEFT)
 		env->img_x -= 5;
 	else if (keycode == DOWN && env->img_y < W_HEIGHT - 5)
 		env->img_y += 5;
-	else if (keycode == UP && env->img_y > 5)
+	else if (keycode == UP)
 		env->img_y -= 5;
 	key_hook2(keycode, env);
 	ft_draw(env, &(env->list->p_head), env->point);
