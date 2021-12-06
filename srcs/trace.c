@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/03 15:41:43 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 16:26:39 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	ft_trace(t_env *env, t_point point)
 	iso(&(point.xb), &(point.yb), point.zb, &env);
 	point.x = point.xa;
 	point.y = point.ya;
-	// printf("x = %d, y = %d\n",point.x, point.y);
 	point.dx = abs(point.xb - point.xa);
 	point.dy = abs(point.yb - point.ya);
 	point.xinc = -1;
