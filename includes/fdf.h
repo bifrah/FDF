@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 19:14:17 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 19:41:23 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,20 @@ typedef struct s_point {
 }				t_point;
 
 typedef struct s_env {
-	void	*mlx;
-	void	*win_ptr;
-	void	*img_data;
-	char	*img_ptr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
+	void			*mlx;
+	void			*win_ptr;
+	void			*img_data;
+	char			*img_ptr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
 	long int		img_x;
 	long int		img_y;
-	float	zoom;
-	t_dlist	*list;
-	t_point	point;
-	int		is_iso;
-	unsigned int		list_size;
+	float			zoom;
+	t_dlist			*list;
+	t_point			point;
+	int				is_iso;
+	unsigned int	list_size;
 }				t_env;
 
 int			key_hook(int keycode, t_env *env);
@@ -82,6 +82,7 @@ void		ft_trace(t_env *env, t_point point);
 void		iso(int *x, int *y, int z, t_env **env);
 void		my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void		ft_print_map(t_dnode *node);
+void		ft_setpoint(t_point *point);
 
 # define RED		0x00FF0000
 # define GREEN		0x0000FF00

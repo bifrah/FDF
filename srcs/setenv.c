@@ -6,11 +6,17 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:48:00 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 19:15:20 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 19:36:49 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void	ft_setpoint(t_point *point)
+{
+	point->ab = -1;
+	point->or = -1;
+}
 
 void	ft_setenv(t_env *env, t_dlist *list, t_point point)
 {

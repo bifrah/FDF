@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 19:02:49 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 19:34:55 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	proj(int *x, int *y, int z, t_env **env)
 {
 	int				previous_x;
 	int				previous_y;
-	float				proj;
+	float			proj;
 
 	if ((*env)->is_iso == 1)
 		proj = 0.523599;
