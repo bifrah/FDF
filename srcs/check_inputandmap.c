@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:03:54 by bifrah            #+#    #+#             */
-/*   Updated: 2021/11/26 13:34:27 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 19:23:49 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,3 @@ int	ft_check_map(int fd)
 		return (0);
 	return (MAP_ERROR);
 }
-
-/*
-Lire ligne par ligne (et stocker chaques lignes)
-Verifier si :
-- (1) Pas vide
-- (2) Chaque lignes a le meme nombre de caractere
-- (3) Est compose de "nb  nb  nb  nb..."
-*/
-// 1 0 1 => ["1", "0", "1\n", "\0"]

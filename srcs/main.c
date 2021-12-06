@@ -6,31 +6,11 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 19:06:42 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 19:25:24 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
-
-void	ft_print_map(t_dnode *node)
-{
-	unsigned int	i;
-
-	printf("%d\n", node->len_x);
-	while (node)
-	{
-		i = 0;
-		while (i < node->len_x)
-		{
-			printf("%d", node->x[i]);
-			if (i + 1 < node->len_x)
-				printf(" ");
-			i++;
-		}
-		printf("\n");
-		node = node->p_next;
-	}
-}
 
 int	ft_printerr(int errcode)
 {
