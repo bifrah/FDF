@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:39 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 16:26:57 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/06 16:33:43 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_draw_trace(t_env *env, t_dlist *list, t_point point)
 
 void	ft_draw(t_env *env, t_dlist *list, t_point point)
 {
+	printf("img_y = %d\n", env->img_y);
 	env->img_ptr = mlx_new_image(env->mlx, W_WIDTH, W_HEIGHT);
 	env->img_data = mlx_get_data_addr(env->img_ptr, &env->bits_per_pixel,
 			&env->line_length, &env->endian);
