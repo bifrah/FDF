@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 12:48:00 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 21:20:05 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:29:54 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,6 @@ void	ft_setenv(t_env *env, t_dlist *list, t_point point)
 	env->point = point;
 	env->point.color = WHITE;
 	env->is_iso = 1;
+	env->chooseangle = 0;
+	env->angle = 0;
 }

@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 21:15:48 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:56:00 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ft_else(t_env *env, t_point point)
 	}
 }
 
-void	proj(int *x, int *y, int z, t_env **env)
+void proj(int *x, int *y, int z, t_env **env)
 {
 	int				previous_x;
 	int				previous_y;
@@ -77,6 +77,8 @@ void	proj(int *x, int *y, int z, t_env **env)
 
 void	ft_trace(t_env *env, t_point point)
 {
+	ft_rotation(&(point.xa), &(point.ya), &(point.za), &env);
+	ft_rotation(&(point.xb), &(point.yb), &(point.zb), &env);
 	proj(&(point.xa), &(point.ya), point.za, &env);
 	proj(&(point.xb), &(point.yb), point.zb, &env);
 	point.x = point.xa;

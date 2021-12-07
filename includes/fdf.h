@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 21:21:20 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:56:53 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ typedef struct s_env {
 	t_point			point;
 	int				is_iso;
 	unsigned int	list_size;
+	int				chooseangle;
+	int				angle;
 }				t_env;
 
 int			key_hook(int keycode, t_env *env);
@@ -84,6 +86,11 @@ void		iso(int *x, int *y, int z, t_env **env);
 void		my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void		ft_print_map(t_dnode *node);
 void		ft_setpoint(t_point *point);
+void		ft_rotation(int *x, int *y, int *z, t_env **env);
+void	    ft_xrota(int *x, int *y, int *z, t_env *env);
+void    	ft_yrota(int *x, int *y, int *z, t_env *env);
+void    	ft_zrota(int *x, int *y, int *z, t_env *env);
+
 
 # define WHITE		0x00F0F8FF
 # define RED		0x00FF0000
@@ -98,6 +105,13 @@ void		ft_setpoint(t_point *point);
 # define KEY_B		98
 # define KEY_M		109
 # define KEY_C		99
+
+# define KEY_X		120
+# define XAXIS		42120
+# define KEY_Y		121
+# define YAXIS		42121
+# define KEY_Z		122
+# define ZAXIS		42122
 
 # define LEFT	65361
 # define UP		65362

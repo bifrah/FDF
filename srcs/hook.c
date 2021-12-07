@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 21:32:39 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 15:59:35 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,21 @@ void	key_hook2(int keycode, t_env *env)
 		env->point.color = MAGENTA;
 	else if (keycode == KEY_C)
 		env->point.color = CYAN;
+	else if (keycode == KEY_X)
+	{
+		env->chooseangle = 1;
+		env->angle += 20;
+	}
+	// else if (keycode == KEY_Y)
+	// {
+	// 	env->chooseangle = 2;
+	// 	env->angle += 5;
+	// }
+	// else if (keycode == KEY_Z)
+	// {
+	// 	env->chooseangle = 3;
+	// 	env->angle += 5;
+	// }
 }
 
 int	key_hook(int keycode, t_env *env)

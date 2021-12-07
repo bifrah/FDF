@@ -18,7 +18,8 @@ SRC_NAME =	main.c \
 			hook.c \
 			draw.c \
 			trace.c \
-			utils.c
+			utils.c \
+			rotation.c
 
 LIBX_LINUX_FLAGS = -lm -lbsd -lX11 -lXext
 
