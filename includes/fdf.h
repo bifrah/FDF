@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/07 15:56:53 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 16:46:29 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,9 @@ void		my_mlx_pixel_put(t_env *env, int x, int y, int color);
 void		ft_print_map(t_dnode *node);
 void		ft_setpoint(t_point *point);
 void		ft_rotation(int *x, int *y, int *z, t_env **env);
-void	    ft_xrota(int *x, int *y, int *z, t_env *env);
-void    	ft_yrota(int *x, int *y, int *z, t_env *env);
-void    	ft_zrota(int *x, int *y, int *z, t_env *env);
-
+void		ft_xrota(int *x, int *y, int *z, t_env *env);
+void		ft_yrota(int *x, int *y, int *z, t_env *env);
+void		ft_zrota(int *x, int *y, int *z, t_env *env);
 
 # define WHITE		0x00F0F8FF
 # define RED		0x00FF0000
@@ -106,10 +105,13 @@ void    	ft_zrota(int *x, int *y, int *z, t_env *env);
 # define KEY_M		109
 # define KEY_C		99
 
+# define KEY_H		104
 # define KEY_X		120
 # define XAXIS		42120
+# define KEY_J		106
 # define KEY_Y		121
 # define YAXIS		42121
+# define KEY_K		107
 # define KEY_Z		122
 # define ZAXIS		42122
 

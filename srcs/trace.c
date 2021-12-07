@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 18:17:33 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/07 15:56:00 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 16:49:57 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ft_else(t_env *env, t_point point)
 	}
 }
 
-void proj(int *x, int *y, int z, t_env **env)
+void	proj(int *x, int *y, int z, t_env **env)
 {
 	int				previous_x;
 	int				previous_y;

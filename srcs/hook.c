@@ -6,11 +6,40 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/07 15:59:35 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 16:58:02 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void	rotahook(int keycode, t_env *env)
+{
+	if (keycode == KEY_X)
+	{
+		env->chooseangle = 1;
+		env->angle += 1;
+	}
+	else if (keycode == KEY_Y)
+	{
+		env->chooseangle = 2;
+		env->angle += 5;
+	}
+	else if (keycode == KEY_Z)
+	{
+		env->chooseangle = 3;
+		env->angle += 5;
+	}
+	if (keycode == KEY_H || keycode == KEY_J || keycode == KEY_K)
+	{
+		if (keycode == KEY_H)
+			env->chooseangle = 1;
+		if (keycode == KEY_J)
+			env->chooseangle = 2;
+		if (keycode == KEY_K)
+			env->chooseangle = 3;
+		env->angle = 0;
+	}
+}
 
 void	key_hook2(int keycode, t_env *env)
 {
@@ -28,21 +57,6 @@ void	key_hook2(int keycode, t_env *env)
 		env->point.color = MAGENTA;
 	else if (keycode == KEY_C)
 		env->point.color = CYAN;
-	else if (keycode == KEY_X)
-	{
-		env->chooseangle = 1;
-		env->angle += 20;
-	}
-	// else if (keycode == KEY_Y)
-	// {
-	// 	env->chooseangle = 2;
-	// 	env->angle += 5;
-	// }
-	// else if (keycode == KEY_Z)
-	// {
-	// 	env->chooseangle = 3;
-	// 	env->angle += 5;
-	// }
 }
 
 int	key_hook(int keycode, t_env *env)
@@ -67,6 +81,7 @@ int	key_hook(int keycode, t_env *env)
 	else if (keycode == UP)
 		env->img_y -= 5;
 	key_hook2(keycode, env);
+	rotahook(keycode, env);
 	ft_draw(env, &(env->list->p_head), env->point);
 	return (0);
 }
