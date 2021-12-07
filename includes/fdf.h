@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/07 16:46:29 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 21:28:09 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ void		ft_zrota(int *x, int *y, int *z, t_env *env);
 # define INPUT_ERROR	-3
 # define MAP_ERROR		-4
 # define MALLOC_ERROR	-5
+# define FREEFORLEAVE	-6
 
 # define W_WIDTH	2560
 # define W_HEIGHT	1440

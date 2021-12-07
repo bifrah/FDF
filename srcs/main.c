@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 17:34:49 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/06 19:25:24 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 21:37:50 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,10 @@ int	main(int argc, char **argv)
 	param.fd = ft_check_input(argc, argv);
 	if (ft_printerr(param.fd) < 0 || ft_printerr(ft_check_map(param.fd)) < 0
 		|| ft_printerr(ft_stock_input(argv, list)) < 0)
+	{
+		ft_dlistdel(&list, FREEFORLEAVE);
 		return (-1);
+	}
 	ft_setenv(&env, list, point);
 	ft_draw(&env, &list->p_head, point);
 	mlx_hook(env.win_ptr, 2, (1L << 0), &key_hook, &env);

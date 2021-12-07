@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/07 17:01:52 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 21:41:46 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,10 @@ void	key_hook2(int keycode, t_env *env)
 int	key_hook(int keycode, t_env *env)
 {
 	if (keycode == ESC)
+	{
+		ft_dlistdel(&env->list, FREEFORLEAVE);
 		exit (0);
+	}
 	else if (keycode == BACKSPACE)
 	{
 		env->img_x = W_WIDTH / 2;
