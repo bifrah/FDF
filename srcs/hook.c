@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/07 16:58:02 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/07 17:01:52 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,15 @@
 
 void	rotahook(int keycode, t_env *env)
 {
-	if (keycode == KEY_X)
+	if (keycode == KEY_X || keycode == KEY_Y || keycode == KEY_Z)
 	{
-		env->chooseangle = 1;
+		if (keycode == KEY_X)
+			env->chooseangle = 1;
+		if (keycode == KEY_Y)
+			env->chooseangle = 2;
+		if (keycode == KEY_Z)
+			env->chooseangle = 3;
 		env->angle += 1;
-	}
-	else if (keycode == KEY_Y)
-	{
-		env->chooseangle = 2;
-		env->angle += 5;
-	}
-	else if (keycode == KEY_Z)
-	{
-		env->chooseangle = 3;
-		env->angle += 5;
 	}
 	if (keycode == KEY_H || keycode == KEY_J || keycode == KEY_K)
 	{
