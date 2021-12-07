@@ -122,7 +122,7 @@ void		ft_setpoint(t_point *point);
 # define MAP_ERROR		-4
 # define MALLOC_ERROR	-5
 
-# define W_WIDTH	1920
-# define W_HEIGHT	1080
+# define W_WIDTH	2560
+# define W_HEIGHT	1440
 
 #endif
