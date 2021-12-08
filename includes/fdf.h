@@ -6,7 +6,7 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:27:40 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/07 21:28:09 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/08 18:38:46 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <math.h>
 # include <limits.h>
 # include <stdlib.h>
+# include <stdio.h>
 # include <unistd.h>
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
@@ -73,7 +74,7 @@ typedef struct s_env {
 
 int			key_hook(int keycode, t_env *env);
 void		ft_draw(t_env *env, t_dnode **node, t_point point);
-void		ft_setenv(t_env *env, t_dlist *list, t_point point);
+int			ft_setenv(t_env *env, t_dlist *list, t_point point);
 int			ft_check_input(int argc, char **argv);
 int			ft_lineisnum(char **dest);
 int			ptrstrlen(char **dest);
@@ -137,7 +138,8 @@ void		ft_zrota(int *x, int *y, int *z, t_env *env);
 # define INPUT_ERROR	-3
 # define MAP_ERROR		-4
 # define MALLOC_ERROR	-5
-# define FREEFORLEAVE	-6
+# define NODISPLAY		-6
+# define DELLIST		-42
 
 # define W_WIDTH	2560
 # define W_HEIGHT	1440

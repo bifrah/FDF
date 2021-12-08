@@ -6,11 +6,27 @@
 /*   By: bifrah <bifrah@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 12:33:43 by bifrah            #+#    #+#             */
-/*   Updated: 2021/12/07 21:41:46 by bifrah           ###   ########.fr       */
+/*   Updated: 2021/12/08 19:34:31 by bifrah           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
+
+void	moovehook(int keycode, t_env *env)
+{
+	if (keycode == ZOOM_IN)
+		env->zoom *= 1.25;
+	else if (keycode == ZOOM_OUT)
+		env->zoom /= 1.25;
+	else if (keycode == RIGHT && env->img_x < W_WIDTH - 5)
+		env->img_x += 5;
+	else if (keycode == LEFT)
+		env->img_x -= 5;
+	else if (keycode == DOWN && env->img_y < W_HEIGHT - 5)
+		env->img_y += 5;
+	else if (keycode == UP)
+		env->img_y -= 5;
+}
 
 void	rotahook(int keycode, t_env *env)
 {
@@ -58,7 +74,10 @@ int	key_hook(int keycode, t_env *env)
 {
 	if (keycode == ESC)
 	{
-		ft_dlistdel(&env->list, FREEFORLEAVE);
+		ft_dlistdel(&env->list, DELLIST);
+		mlx_destroy_window(env->mlx, env->win_ptr);
+		mlx_destroy_display(env->mlx);
+		free(env->mlx);
 		exit (0);
 	}
 	else if (keycode == BACKSPACE)
@@ -66,18 +85,7 @@ int	key_hook(int keycode, t_env *env)
 		env->img_x = W_WIDTH / 2;
 		env->img_y = W_HEIGHT / 2;
 	}
-	else if (keycode == ZOOM_IN)
-		env->zoom *= 1.25;
-	else if (keycode == ZOOM_OUT)
-		env->zoom /= 1.25;
-	else if (keycode == RIGHT && env->img_x < W_WIDTH - 5)
-		env->img_x += 5;
-	else if (keycode == LEFT)
-		env->img_x -= 5;
-	else if (keycode == DOWN && env->img_y < W_HEIGHT - 5)
-		env->img_y += 5;
-	else if (keycode == UP)
-		env->img_y -= 5;
+	moovehook(keycode, env);
 	key_hook2(keycode, env);
 	rotahook(keycode, env);
 	ft_draw(env, &(env->list->p_head), env->point);
